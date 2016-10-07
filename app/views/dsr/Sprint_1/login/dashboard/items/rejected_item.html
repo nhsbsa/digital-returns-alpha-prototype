@@ -1,0 +1,58 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    
+    <div class="grid-row">
+
+  <div class="column-third">
+    <ul>
+    <li style="padding:10px 0 20px 0;"><a href="../rejected">Back</a></li>
+      </ul>
+
+  </div>
+        
+        
+
+  <div class="column-two-thirds">
+      
+      <div style="margin-top: 20px; padding-left: 0px;" class="two-thirds">
+
+          <p class="lede">Quantity missing for <strong>item 3</strong></p>
+    </div>
+      
+      
+      
+      <form action="/" method="post" class="form">
+
+
+      <div class="form-item-wrapper">
+        <fieldset>
+          <p><legend class="form-label-bold">Please enter the quantity for this item</legend></p>
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+        </fieldset>
+      </div>
+         
+         <p><a href="../rejected_submit" class="button button-get-started">Submit</a></p>
+
+  </form>
+      
+        </div>
+        
+        
+        
+    </div>
+    
+    
+    
+    
+      
+</main>
+
+{% endblock %}

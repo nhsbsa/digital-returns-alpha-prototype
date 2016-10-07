@@ -1,0 +1,51 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+{% import 'includes/form_macros.html' as form_macros %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/register-with-a-gp.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="text">
+    <h1 class="heading-xlarge">
+      Find your personal details
+    </h1>
+
+  </div>
+
+  <form action="choose-registration-method-handler" method="get" class="form text">
+    <fieldset>
+      <legend class="form-label-bold">Do you have an NHS login?</legend>
+
+      {{
+        form_macros.radio_button_single({
+          id: 'sign-in-to-register',
+          name: 'registration_method',
+          value: 'with-signin',
+          label: '<strong>Yes,</strong> I will sign in to register'
+        })
+      }}
+
+      {{
+        form_macros.radio_button_single({
+          id: 'register-without-signing-in',
+          name: 'registration_method',
+          value: 'without-signin',
+          label: '<strong>No I do not,</strong> I will register without signing in'
+        })
+      }}
+
+    </fieldset>
+
+    {{
+      form_macros.button({
+        label: 'Next'
+      })
+    }}
+  </form>
+</main>
+
+{% endblock %}

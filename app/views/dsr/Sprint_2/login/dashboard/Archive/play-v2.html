@@ -1,0 +1,172 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div style="margin: 20px 0 20px 0; background-color: #E5F0F9;padding:20px 0 15px 20px;" class="notice">
+  <i class="icon icon-important">
+    <span class="visuallyhidden">Warning</span>
+  </i>
+  <span style="position:absolute; padding: 8px 0 0 15px;"><strong  class="bold-small">
+    10 item(s) require your attention
+  </strong><a href="rejected"> Fix this</a></span>
+        
+</div>
+    
+    <h1 style="padding:10px 0 0 0;" class="heading-xlarge">Prescription payments</h1>
+    
+    <h2 class="heading-medium">Your next payment</h2>
+    
+    <p>This payment will be made on 12/10/2016</p>
+    
+        <div class="grid-row"> 
+    
+            <div class="column-half">
+                
+                <div style="border-top: 0px solid #d9e8e1; padding: 20px 0 20px 0px;">
+                    
+                    <div style="float:left; margin-right: 50px">
+                    
+                         <h2 style="margin-bottom: 5px; font-size:48px">89</h2>
+                    
+                    <p>items</p>
+                    
+                    </div>
+                    
+                    <div>
+                    
+                         <h2 style="margin-bottom: 5px; font-size:48px">£1,245.21</h2>
+                    
+                    <p>total</p>
+                    
+                    </div>
+                
+                    <a href="calculated">View all payments</a>
+                
+                </div>
+         
+            </div>
+            
+            
+            <div class="column-quarter">
+                
+                <div style=" border-top: 0px solid #006435; padding: 20px 0 0;">
+                
+                    <h2 style="margin-bottom: 5px; font-size:48px">85</h2>
+                    
+                    <p>from last submission</p>
+                    
+                    <a href="accepted">View items</a>
+                
+                </div>
+         
+            </div>
+            
+            <div class="column-quarter">
+                
+                <div style=" border-top: 0px solid #006435; padding: 20px 0 0;">
+                
+                    <h2 style="margin-bottom: 5px; font-size:48px">4</h2>
+                    
+                    <p>from past submissions</p>
+                    
+                    <a href="accepted">View items</a>
+                
+                </div>
+         
+            </div>
+          
+    </div>
+    
+    <hr>
+
+    <div class="column-half" style="padding-left:0px">
+    
+        <h2 class="heading-medium">Returned back items</h2>
+    
+        <p>More detail is required for these items</p>
+        
+    </div>
+    
+    <div class="column-half">
+        
+        <h2 class="heading-medium">Disallowed items</h2>
+    
+        <p>Disallowed items cannot be paid</p>
+        
+    </div>
+    
+    
+        <div style="margin-top: 30px;" class="grid-row"> 
+    
+            <div class="column-quarter">
+                
+                <div style=" border-top: 5px solid #faaa44; padding: 35px 0 0;">
+                
+                    <h2 style="margin-bottom: 5px; font-size:48px">6</h2>
+                    
+                    <p>from last submission</p>
+                    
+                    <a href="accepted">Fix items</a>
+                
+                </div>
+         
+            </div>
+            
+            <div class="column-quarter">
+                
+                <div style=" border-top: 5px solid #faaa44; padding: 35px 0 0;">
+                
+                    <h2 style="margin-bottom: 5px; font-size:48px">12</h2>
+                    
+                    <p>from past submissions</p>
+                    
+                    <a href="accepted">Fix items</a>
+                
+                </div>
+         
+            </div>
+            
+            
+            <div class="column-quarter">
+                
+                <div style=" border-top: 0px solid #DF3034; padding: 35px 0 0;">
+                
+                    <h2 style="margin-bottom: 5px; font-size:48px">8</h2>
+                    
+                    <p>from last submission</p>
+                    
+                    <a href="accepted">View items</a>
+                
+                </div>
+         
+            </div>
+            
+            <div class="column-quarter">
+                
+                <div style=" border-top: 0px solid #DF3034; padding: 35px 0 0;">
+                
+                    <h2 style="margin-bottom: 5px; font-size:48px">2</h2>
+                    
+                    <p>from past submissions</p>
+                    
+                    <a href="accepted">View items</a>
+                
+                </div>
+         
+            </div>
+            
+    </div>
+            
+            
+            
+            
+    </div>
+    
+    
+</main>
+
+{% endblock %}

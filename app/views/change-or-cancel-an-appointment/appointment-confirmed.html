@@ -1,0 +1,32 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+{% import 'includes/ui_element_macros.html' as ui_element_macros %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/cancel-or-change-an-appointment.html" %}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <h1 class="heading-xlarge">
+    Appointment confirmed
+  </h1>
+
+  {{
+    ui_element_macros.appointment_summary({
+      appointment_date: 'Monday 28th January 2016',
+      appointment_time: '11:00',
+      appointment_days_away: '10',
+      avatar_img_path: '/public/images/icon-avatar-malcolm-branch.png',
+      name: 'Dr Malcolm Branch',
+      position: 'GP',
+      gender: 'male',
+      appointment_length: '10',
+      appointment_type: 'face to face',
+      appointment_type_class: 'face-to-face',
+      tools: 'true'
+    })
+  }}
+
+</main>
+{% endblock %}

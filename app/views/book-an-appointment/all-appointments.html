@@ -1,0 +1,50 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+{% import 'includes/form_macros.html' as form_macros %}
+{% import 'includes/ui_element_macros.html' as ui_element_macros %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/book-an-appointment.html" %}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <h1 class="heading-xlarge">
+    Choose an appointment
+  </h1>
+
+  <div class="grid-row">
+    <div class="column-third column-switch-right">
+      <p>
+        {{ practice.name }}<br>
+        {{ practice.address.join('<br>') }}
+      </p>
+    </div>
+    <div class="column-two-thirds">
+
+      {% for appointment in appointments %}
+        {{
+          ui_element_macros.appointment_option({
+            link_url: 'confirm-appointment/' + appointment.uuid,
+            appointment_date: appointment.appointment_date,
+            appointment_time: appointment.appointment_time,
+            appointment_days_away: appointment.appointment_days_away,
+            avatar_img_path: '/public/images/' + appointment.practitioner.photo,
+            name: appointment.practitioner.name,
+            position: appointment.practitioner.role,
+            gender: appointment.practitioner.gender,
+            appointment_length: appointment.appointment_length,
+            appointment_type: appointment.appointment_type,
+            appointment_type_class: appointment.appointment_type_class
+          })
+        }}
+      {% endfor %}
+
+      <p>
+        or <a href="next-available-appointment">see next available appointment</a>
+      </p>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+{% import 'includes/form_macros.html' as form_macros %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/register-with-a-gp.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="text">
+    <h1 class="heading-xlarge">
+      Find GP practices near you
+    </h1>
+  </div>
+
+  <div class="text">
+    <form method="get" class="form">
+
+      {{
+        form_macros.text_field({
+          id: 'postcode',
+          label: 'Postcode'
+        })
+      }}
+
+      {{
+        form_macros.button({
+          href: 'suggested-gps',
+          label: 'Search'
+        })
+      }}
+
+    </form>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+{% import 'includes/form_macros.html' as form_macros %}
+{% import 'includes/ui_element_macros.html' as ui_element_macros %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/cancel-or-change-an-appointment.html" %}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main" class="">
+
+  <a href="change-to-next-available-appointment" class="back-to-previous">Back</a>
+
+  <h1 class="heading-xlarge">
+    Confirm change
+  </h1>
+
+  <style>
+    .appointment-old-backdrop {
+      padding: 1rem 1rem 1px 1rem;
+      outline: 0.25rem solid rgba(226,35,26,0.2);
+      overflow: auto;
+    }
+    .appointment-new-backdrop {
+      padding: 1rem 1rem 1px 1rem;
+      outline: 0.25rem solid rgba(119,188,31,0.25);
+      overflow: auto;
+    }
+  </style>
+
+  <div class="grid-row expand-bottom">
+    <div class="column-half">
+
+      <h2 class="heading-small" style="font-weight:normal;">Old appointment:</h2>
+
+      <div class="appointment-old-backdrop">
+        {{
+          ui_element_macros.appointment_summary({
+            appointment_date: 'Wednesday 3rd February 2016',
+            appointment_time: '08:30',
+            appointment_days_away: '10',
+            avatar_img_path: '/public/images/icon-avatar-helen-leaf.png',
+            name: 'Dr Helen Leaf',
+            position: 'GP',
+            gender: 'female',
+            appointment_length: '10',
+            appointment_type: 'face to face',
+            appointment_type_class: 'face-to-face'
+          })
+        }}
+      </div>
+
+    </div>
+    <div class="column-half">
+
+      <h2 class="heading-small" style="font-weight:normal;">New appointment:</h2>
+
+      <div class="appointment-new-backdrop">
+
+        {{
+          ui_element_macros.appointment_summary({
+            appointment_date: 'Monday 1st February 2016',
+            appointment_time: '11:00',
+            appointment_days_away: '10',
+            avatar_img_path: '/public/images/icon-avatar-malcolm-branch.png',
+            name: 'Dr Malcolm Branch',
+            position: 'GP',
+            gender: 'male',
+            appointment_length: '10',
+            appointment_type: 'face to face',
+            appointment_type_class: 'face-to-face'
+          })
+        }}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {{
+    form_macros.button({
+      href: 'appointment-confirmed',
+      label: 'Confirm change of appointment'
+    })
+  }}
+  <p><a href="#">Cancel this change</a></p>
+
+</main>
+{% endblock %}

@@ -1,0 +1,73 @@
+// Add "tint" and "shade" mixins
+
+// Add percentage of white to a color
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
+
+// Import GOV.UK frontend toolkit
+@import "colours";
+@import "device-pixels";
+@import "measurements";
+@import "conditionals";
+@import "shims";
+//@import "typography";
+@import "grid_layout";
+@import "css3";
+@import "design-patterns/buttons";
+
+// Import GOV.UK elements
+
+@import "elements/helpers";
+@import "elements/reset";
+//@import "elements/typography";
+@import "elements/layout";
+@import "elements/forms";
+@import "elements/tables";
+@import "elements/buttons";
+@import "elements/details";
+//@import "elements/lists";
+@import "elements/panels";
+@import "elements/icons";
+@import "elements/utilities";
+@import "elements/cards";
+
+
+// Import modules
+
+@import "modules/shame";
+@import "modules/for-elements";
+@import "modules/form-navigation";
+@import "modules/other-specify";
+@import "modules/radios-and-checkboxes";
+//@import "modules/auto-suggest";
+@import "modules/select-boxes";
+@import "modules/guide_navigation";
+@import "modules/page_meta";
+@import "modules/breadcrumbs";
+
+// NHS.UK Template
+
+@import "modules/nhs-template";
+
+// NHS "Sassline" based typography
+@import "typography/variables";
+@import "typography/modular-scale";
+@import "typography/mixins";
+@import "typography/typography";
+
+// Default content stuff
+
+.markdown-content {
+  h1 { @extend .heading-large; }
+  h2 { @extend .heading-medium; }
+  h3 { @extend .heading-small; }
+
+  ul { @extend .list-bullet; }
+  ol { @extend .list-number; }
+}

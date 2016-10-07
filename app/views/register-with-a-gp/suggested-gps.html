@@ -1,0 +1,66 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/register-with-a-gp.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <h1 class="heading-xlarge">
+    Choose a GP practice
+  </h1>
+
+  <div class="text">
+
+    <p class="lede">Your {{ practices.length }} nearest GP practices for NW13 9HL:</p>
+
+    {% for practice in practices %}
+      <div style="border-top: 1px solid #b9d2dc; padding-bottom: 1rem;">
+
+        <h2 class="heading-medium">
+          <a href="practices/{{ practice.slug }}">{{ practice.name }}</a>
+        </h2>
+
+        <p><b>
+          {{ practice.address.join('<br>') }}
+        </b></p>
+
+        <p class="font-xsmall">
+          {{ practice.travel_time }}
+        </p>
+
+        <h3 class="heading-small">Appointment hours:</h3>
+
+        <table>
+          {% for hours in practice.appointment_hours %}
+            <tr>
+              <td>{{ loop.key }}</td>
+              <td>{{ hours }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+
+        <p>
+          <b>{{ practice.ratings.would_recommend }}</b>
+          of patients recommend this GP practice
+        </p>
+
+      </div>
+    {% endfor %}
+
+    <div style="border-top: 1px solid #b9d2dc; padding-bottom: 1rem; padding-top: 1rem">
+      <p>
+        <a href="#"><b>See more GP practices near me</b></a>
+      </p>
+
+      <p class="font-xsmall">
+        or <a href="find-a-gp">search again</a>
+      </p>
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}

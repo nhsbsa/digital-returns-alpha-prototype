@@ -1,0 +1,43 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+{% import 'includes/form_macros.html' as form_macros %}
+{% import 'includes/ui_element_macros.html' as ui_element_macros %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/book-an-appointment.html" %}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <h1 class="heading-xlarge">
+    Choose a health professional
+  </h1>
+
+  <div class="grid-row">
+    <div class="column-third column-switch-right">
+      <p>
+        {{ practice.name }}<br>
+        {{ practice.address.join('<br>') }}
+      </p>
+    </div>
+    <div class="column-two-thirds">
+
+      <h2 class="heading-small">See a particular person:</h2>
+
+      {% for practitioner in practitioners %}
+        {{
+          ui_element_macros.practitioner_link({
+            link_url: 'appointments-with-practitioner?practitioner=' + practitioner.uuid,
+            avatar_img_path: '/public/images/' + practitioner.photo,
+            name: practitioner.name,
+            position: practitioner.role,
+            gender: practitioner.gender
+          })
+        }}
+      {% endfor %}
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

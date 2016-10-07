@@ -1,0 +1,74 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+{% import 'includes/form_macros.html' as form_macros %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/register-with-a-gp.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <h1 class="heading-xlarge">
+    Enter your details
+  </h1>
+
+  <form action="" method="get" class="form">
+
+    {{
+      form_macros.text_field({
+        id: 'name',
+        label: 'Full name'
+      })
+    }}
+
+    {{
+      form_macros.date_field({
+        label: 'Date of birth',
+        hint_date: '31 7 1961',
+        id_prefix: 'dob-'
+      })
+    }}
+
+    {{
+      form_macros.address_fields({
+        id: 'address-1',
+        label: 'Address',
+        hint: 'As you’d write it on an envelope'
+      })
+    }}
+
+    {{
+      form_macros.text_field({
+        id: 'email',
+        label: 'Email address'
+      })
+    }}
+
+    {{
+      form_macros.text_field({
+        id: 'telephone',
+        label: 'Telephone number (optional)'
+      })
+    }}
+
+    {{
+      form_macros.text_field({
+        id: 'nhs-number',
+        label: 'NHS number (optional)',
+        hint: 'If you know it &mdash; for example 943 476 5919',
+        class: 'form-control-1-4'
+      })
+    }}
+
+    {{
+      form_macros.button({
+        href: 'your-existing-gp-details',
+        label: 'Next'
+      })
+    }}
+
+  </form>
+</main>
+
+{% endblock %}

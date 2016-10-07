@@ -1,0 +1,40 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+{% import 'includes/form_macros.html' as form_macros %}
+{% import 'includes/ui_element_macros.html' as ui_element_macros %}
+
+{% block afterHeader %}
+  {% include "includes/service-headers/book-an-appointment.html" %}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <h1 class="heading-xlarge">
+    Book appointment
+  </h1>
+
+  {{
+    ui_element_macros.appointment_summary({
+      appointment_date: appointment.appointment_date,
+      appointment_time: appointment.appointment_time,
+      appointment_days_away: appointment.appointment_days_away,
+      avatar_img_path: '/public/images/' + appointment.practitioner.photo,
+      name: appointment.practitioner.name,
+      position: appointment.practitioner.role,
+      gender: appointment.practitioner.gender,
+      appointment_length: appointment.appointment_length,
+      appointment_type: appointment.appointment_type,
+      appointment_type_class: appointment.appointment_type_class,
+      address: address.join('<br>')
+    })
+  }}
+
+  {{
+    form_macros.button({
+      href: '../appointment-confirmed/' + appointment.uuid,
+      label: 'Book this appointment'
+    })
+  }}
+
+</main>
+{% endblock %}
