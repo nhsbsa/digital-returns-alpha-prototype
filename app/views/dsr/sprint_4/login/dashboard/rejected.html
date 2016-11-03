@@ -1,0 +1,193 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div style="margin-top: 0px;" class="grid-row">
+    
+    <div class="column-two-thirds">
+    
+    <h1 style="line-height: 1.04167; padding:50px 0 0 0;" class="heading-xlarge">Your account 
+    
+    <span style="font-size: 27px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Teds pharmacy  <a href="logout">Logout</a></span>
+    
+    </h1>
+
+    </div>
+    
+    <div class="column-third" style="margin-top:100px;">
+    
+    </div>
+        
+    </div>
+    
+    <div style="margin: 60px 0 30px 0; width: 100%; padding-bottom:28px; border-bottom: 1px solid #667078">
+            
+          
+        
+            <a style="font-size: 24px; text-decoration: none; margin: 0 5px 5px 0; padding:30px 30px 20px 30px; background-color:#dee0e2;" href="../dashboard/">Item payment summary</a>
+        
+            <a style="font-size: 24px; text-decoration: none; color: #000; padding:30px; background-color:#fff; border: 1px solid #667078; border-bottom: 1px solid white" href="">View all items</a>
+        
+        </div>
+    
+    
+    
+    <div class="grid-row">
+        
+        <div class="column-third">
+            
+            <h1 class="heading-large">Item status</h1>
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">missing information</h2>
+    
+        </div>
+        
+        <div style="margin-top:75px;" class="column-two-thirds">
+            
+            <p class="lede" style="margin-bottom: 35px;">Tell us more about what you dispensed</p>
+            
+            <table style="font-size:18px;">
+  <thead>
+      <tr>
+        <th width="40%" scope="col">Prescribed item</th>
+        <th width="30%" scope="col"></th>
+        <th width="30%" class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+        
+  <tbody style="line-height:55px;">
+      <tr style="border-bottom: 1px solid grey">
+      <td>Carmellose </td>
+      <td>Eye drops</td>
+      <td class="numeric last"><a href="../dashboard/items/cycle/1">Add information</a></td>
+      </tr>
+      
+      <tbody style="line-height:55px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>Lansoprazole </td>
+      <td>Capsules</td>
+      <td class="numeric last"><a href="../dashboard/items/cycle/2">Add information</a></td>
+      </tr>
+        
+       <tbody style="line-height:55px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>Ranitidine </td>
+      <td>Tablets</td>
+      <td class="numeric last"><a href="../dashboard/items/cycle/3">Add information</a></td>
+      </tr>
+          
+      <tbody style="line-height:55px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>Colecalciferol</td>
+      <td>Capsules</td>
+      <td class="numeric last"><a href="../dashboard/items/cycle/4">Add information</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+        </div>
+        
+        <div class="column-third" style="margin-top: 30px;">
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">being reviewed</h2>
+    
+        </div>
+                
+        <div class="column-two-thirds" style="margin-top: 35px;">
+            
+    <p  class="lede" style="margin-bottom: 35px;">Information received and being reviewed</p>
+            
+            <table style="font-size:18px;">
+   <thead>
+      <tr>
+        <th width="40%" scope="col">Prescribed item</th>
+        <th width="30%" scope="col"></th>
+        <th width="30%" class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+        
+      <tbody style="line-height:55px; ">
+      <tr>
+      <td>Carmellose </td>
+      <td>Eye drops</td>
+      <td class="numeric last"><a href="items/accepted_item"></a></td>
+      </tr>
+    
+  </tbody>
+</table>
+                    
+        </div>
+        
+        <div class="column-third" style="margin-top: 30px;">
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">disallowed</h2>
+    
+        </div>
+                
+        <div class="column-two-thirds" style="margin-top: 35px;">
+            
+    <p  class="lede" style="margin-bottom: 35px;">These items are disallowed</p>
+            
+            <table style="font-size:18px;">
+  <thead>
+      <tr>
+        <th width="40%" scope="col">Prescribed item</th>
+        <th width="30%" scope="col"></th>
+        <th width="30%" class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+        
+      <tbody style="line-height:55px; ">
+      <tr>
+      <td>Carmellose </td>
+      <td>Eye drops</td>
+      <td class="numeric last"><a href="items/disallowed_item">Why?</a></td>
+      </tr>
+        
+  </tbody>
+</table>
+            
+        </div>
+            
+            
+            <div class="column-third" style="margin-top: 30px;">
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">accepted</h2>
+    
+        </div>
+                
+        <div class="column-two-thirds" style="margin-top: 35px;">
+            
+    <p  class="lede" style="margin-bottom: 35px;">Information has been processed and accepted</p>
+            
+            <table style="font-size:18px;">
+<thead>
+      <tr>
+        <th width="40%" scope="col">Prescribed item</th>
+        <th width="30%" scope="col"></th>
+        <th width="30%" class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+        
+      <tbody style="line-height:55px; ">
+      <tr>
+      <td>Carmellose </td>
+      <td>Eye drops</td>
+      <td class="numeric last"><a href="items/accepted_item">View item</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+        </div>
+          
+        </div>
+
+</main>
+
+{% endblock %}
