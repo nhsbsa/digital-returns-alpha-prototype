@@ -424,6 +424,131 @@ module.exports = {
         '/book-an-appointment/' + service_slug + '/next-available-appointment'
       );
     });
+
+	var rejectedItemsJson=[
+		{"id" : "item1", "productName" : "Carmellose",     "presentation" : "tablets", "strength" : "150ml", "qty" : "28", "patientName" : "Hadworth", "patientDob" : "10/11/1981", "patientNhsNum" : "6583257485"},
+		{"id" : "item2", "productName" : "Ranitidine",      "presentation" : "suspension", "strength" : "200mg", "qty" : "12", "patientName" : "Harding", "patientDob" : "05/09/1976", "patientNhsNum" : "658732165"},
+		{"id" : "item3", "productName" : "Colecalciferol",  "presentation" : "capsules", "strength" : "0.5%", "qty" : "56", "patientName" : "Smith", "patientDob" : "01/03/1955", "patientNhsNum" : "2589637621"},
+		{"id" : "item4", "productName" : "Doxazosin",       "presentation" : "tablets", "strength" : "400ml", "qty" : "14", "patientName" : "Sherdian", "patientDob" : "14/02/2009", "patientNhsNum" : "1258963241"},
+		{"id" : "item5", "productName" : "Co-amoxiclav",    "presentation" : "oral suspension sugar free", "strength" : "3mg", "qty" : "1", "patientName" : "Morra", "patientDob" : "18/04/2004", "patientNhsNum" : "148365255"},
+		{"id" : "item6", "productName" : "Nifedipress",     "presentation" : "tablets", "strength" : "1ml", "qty" : "7", "patientName" : "Eddington", "patientDob" : "20/06/1966", "patientNhsNum" : "125681254"}
+	];
+
+	var pendingItemsJson=[
+
+	];
+
+	app.get('/dsr/Sprint_4/login/dashboard', function(req, res) {
+		
+		res.render('dsr/Sprint_4/login/dashboard',
+        {
+			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	app.get('/dsr/Sprint_4/login/dashboard/rejected', function(req, res) {
+		
+		res.render('dsr/Sprint_4/login/dashboard/rejected',
+        {
+			"rejectedItems" : rejectedItemsJson,
+			"pendingItems" : pendingItemsJson
+        }
+      );
+	});
+
+	// show the selected item
+	app.get('/dsr/Sprint_4/login/dashboard/items/cycle/rejected/next', function(req, res) {
+	
+		if(rejectedItemsJson.length>0)
+		{
+			// get first rejected item
+			var firstItemId=rejectedItemsJson[0].id;
+			// show it
+			res.redirect('/dsr/Sprint_4/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT');		
+		}
+		else
+		{
+			// no rejected items. go to dashboard page
+			res.redirect('/dsr/Sprint_4/login/dashboard');		
+		}
+	
+	});
+	
+	// show the selected item
+	app.get('/dsr/Sprint_4/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var item;
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);		
+		
+		// the entry is in either rejectedItemsJson or pendingItemsJson
+		if(indexInRejected!=-1)
+			item=rejectedItemsJson[indexInRejected];
+		else if(indexInPending!=-1)
+			item=pendingItemsJson[indexInPending];
+			
+		res.render('dsr/Sprint_4/login/dashboard/items/cycle/template',
+        {
+			"selectedItemId" : item.id,
+			"selectedProductName" : item.productName,
+			"selectedPresentation" : item.presentation,
+			"selectedStrength" : item.strength,
+			"selectedQty" : item.qty,
+			"patientName" : item.patientName,
+			"patientDob" : item.patientDob,
+			"patientNhsNum" : item.patientNhsNum,
+			"after" : req.query.after
+        }
+      );
+	});
+	
+	// submit the selected item
+	// url query param = "after". set to either NEXT or MAIN
+	app.get('/dsr/Sprint_4/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+		
+		if(indexInRejected>=0 && indexInPending==-1)
+		{
+			var moveThisRow=rejectedItemsJson[indexInRejected];
+			rejectedItemsJson.splice(indexInRejected, 1);
+			pendingItemsJson.push(moveThisRow);
+		}
+		
+		// either go to the next, or back to the main page
+		var whereAfter=req.query.after;
+		if(whereAfter=="MAIN")
+			res.redirect('/dsr/Sprint_4/login/dashboard/rejected');
+		else if(whereAfter=="NEXT")
+			res.redirect('/dsr/Sprint_4/login/dashboard/items/cycle/rejected/next');
+		else // this shouldn't happen(!). go to main page anyway
+			res.redirect('/dsr/Sprint_4/login/dashboard/rejected');
+		
+	});
+	
+	
   }
 };
 

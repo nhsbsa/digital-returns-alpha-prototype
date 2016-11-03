@@ -16,27 +16,27 @@
              
              <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Surname</span>
              
-             Hadworth </h3>
+             {{patientName}} </h3>
              
              <h3 class="heading-medium">
              
              <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Date of birth</span>
              
-             18/9/1985 </h3>
+             {{patientDob}} </h3>
              
              <h3 class="heading-medium">
              
              <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">NHS Patient Number</span>
              
-             343432342 </h3>  
+             {{patientNhsNum}} </h3>  
              
              <span style="margin-top: 25px; font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Item information</span>
          
              <ul style="margin: 10px 0 0 20px; list-style-type: disc;">
-                <li>Carmellose</li>
-                <li>0.5%</li>
-                <li>eye drops</li>
-                <li>20</li>
+                <li>{{selectedProductName}}</li>
+                <li>{{selectedStrength}}</li>
+                <li>{{selectedPresentation}}</li>
+                <li>{{selectedQty}}</li>
             </ul>
                     
             <h3 class="heading-medium">
@@ -62,7 +62,7 @@
             <p><legend  class="form-label">Presentation</legend></p>
             
           <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
-              Eye drops
+              {{selectedPresentation}}
           </div>
                   
            <p><legend  class="form-label" >Supplier/manufacturer</legend></p>
@@ -74,9 +74,9 @@
            <p><legend  class="form-label">Quantity</legend></p>
             
           <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
-              2
+              {{selectedQty}}
           </div>
-                  
+                 
                   <p><legend  class="form-label" >Pack size</legend></p>
           <div class="form-group">
             <input type="text" id="first-label" class="form-control">
@@ -90,8 +90,11 @@
                   
         </fieldset>
       </div>
-         <p><a href="../../" class="button button-get-started">Submit</a></p>
+         
+        <p><a href="/dsr/Sprint_4/login/dashboard/items/cycle/submit/{{selectedItemId}}?after={{after}}" class="button button-get-started">Submit</a><a style="margin-left:10px" href="2" class="button button-secondary">Skip</a></p>
+		 
 
+		 
   </form>
            
              </div>

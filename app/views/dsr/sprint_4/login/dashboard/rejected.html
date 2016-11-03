@@ -60,33 +60,15 @@
   </thead>
         
   <tbody style="line-height:55px;">
-      <tr style="border-bottom: 1px solid grey">
-      <td>Carmellose </td>
-      <td>Eye drops</td>
-      <td class="numeric last"><a href="../dashboard/items/cycle/1">Add information</a></td>
-      </tr>
-      
-      <tbody style="line-height:55px; ">
-      <tr style="border-bottom: 1px solid grey">
-      <td>Lansoprazole </td>
-      <td>Capsules</td>
-      <td class="numeric last"><a href="../dashboard/items/cycle/2">Add information</a></td>
-      </tr>
-        
-       <tbody style="line-height:55px; ">
-      <tr style="border-bottom: 1px solid grey">
-      <td>Ranitidine </td>
-      <td>Tablets</td>
-      <td class="numeric last"><a href="../dashboard/items/cycle/3">Add information</a></td>
-      </tr>
-          
-      <tbody style="line-height:55px; ">
-      <tr style="border-bottom: 1px solid grey">
-      <td>Colecalciferol</td>
-      <td>Capsules</td>
-      <td class="numeric last"><a href="../dashboard/items/cycle/4">Add information</a></td>
-      </tr>
-    
+  
+	{% for row in rejectedItems %}
+		<tr style="border-bottom: 1px solid grey">
+		  <td>{{row.productName}}</td>
+		  <td>{{row.presentation}}</td>
+		  <td class="numeric last"><a href="../dashboard/items/cycle/rejected/{{row.id}}?after=MAIN">Add information</a></td>
+		  </tr>
+   {% endfor %}
+	   
   </tbody>
 </table>
             
@@ -112,11 +94,14 @@
   </thead>
         
       <tbody style="line-height:55px; ">
-      <tr>
-      <td>Carmellose </td>
-      <td>Eye drops</td>
-      <td class="numeric last"><a href="items/accepted_item"></a></td>
-      </tr>
+
+	  	{% for row in pendingItems %}
+		<tr style="border-bottom: 1px solid grey">
+		  <td>{{row.productName}}</td>
+		  <td>{{row.presentation}}</td>
+		  <td class="numeric last"><a href="../dashboard/items/cycle/rejected/{{row.id}}">Add information</a></td>
+		  </tr>
+		{% endfor %}
     
   </tbody>
 </table>
