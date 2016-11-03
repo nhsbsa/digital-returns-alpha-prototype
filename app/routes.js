@@ -440,7 +440,7 @@ module.exports = {
 
 	app.get('/dsr/Sprint_4/login/dashboard', function(req, res) {
 		
-		res.render('dsr/Sprint_4/login/dashboard',
+		res.render('dsr/Sprint_4/login/dashboard/index',
         {
 			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
 			"rejectedItemsCount" : rejectedItemsJson.length,
