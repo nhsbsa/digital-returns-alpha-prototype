@@ -438,9 +438,9 @@ module.exports = {
 
 	];
 
-	app.get('/dsr/Sprint_4/login/dashboard', function(req, res) {
+	app.get('/dsr/Sprint_4A/login/dashboard', function(req, res) {
 		
-		res.render('dsr/Sprint_4/login/dashboard_index',
+		res.render('dsr/Sprint_4A/login/dashboard_index',
         {
 			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
 			"rejectedItemsCount" : rejectedItemsJson.length,
@@ -449,9 +449,9 @@ module.exports = {
       );
 	});
 
-	app.get('/dsr/Sprint_4/login/dashboard/rejected', function(req, res) {
+	app.get('/dsr/Sprint_4A/login/dashboard/rejected', function(req, res) {
 		
-		res.render('dsr/Sprint_4/login/dashboard/rejected',
+		res.render('dsr/Sprint_4A/login/dashboard/rejected',
         {
 			"rejectedItems" : rejectedItemsJson,
 			"pendingItems" : pendingItemsJson
@@ -460,25 +460,25 @@ module.exports = {
 	});
 
 	// show the selected item
-	app.get('/dsr/Sprint_4/login/dashboard/items/cycle/rejected/next', function(req, res) {
+	app.get('/dsr/Sprint_4A/login/dashboard/items/cycle/rejected/next', function(req, res) {
 	
 		if(rejectedItemsJson.length>0)
 		{
 			// get first rejected item
 			var firstItemId=rejectedItemsJson[0].id;
 			// show it
-			res.redirect('/dsr/Sprint_4/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT');		
+			res.redirect('/dsr/Sprint_4A/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT');		
 		}
 		else
 		{
 			// no rejected items. go to dashboard page
-			res.redirect('/dsr/Sprint_4/login/dashboard');		
+			res.redirect('/dsr/Sprint_4A/login/dashboard');		
 		}
 	
 	});
 	
 	// show the selected item
-	app.get('/dsr/Sprint_4/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
+	app.get('/dsr/Sprint_4A/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
 		
 		var selectedItemId = req.params.itemId;
 		var item;
@@ -499,7 +499,7 @@ module.exports = {
 		else if(indexInPending!=-1)
 			item=pendingItemsJson[indexInPending];
 			
-		res.render('dsr/Sprint_4/login/dashboard/items/cycle/template',
+		res.render('dsr/Sprint_4A/login/dashboard/items/cycle/template',
         {
 			"selectedItemId" : item.id,
 			"selectedProductName" : item.productName,
@@ -516,7 +516,7 @@ module.exports = {
 	
 	// submit the selected item
 	// url query param = "after". set to either NEXT or MAIN
-	app.get('/dsr/Sprint_4/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
+	app.get('/dsr/Sprint_4A/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
 		
 		var selectedItemId = req.params.itemId;
 
@@ -540,11 +540,11 @@ module.exports = {
 		// either go to the next, or back to the main page
 		var whereAfter=req.query.after;
 		if(whereAfter=="MAIN")
-			res.redirect('/dsr/Sprint_4/login/dashboard/rejected');
+			res.redirect('/dsr/Sprint_4A/login/dashboard/rejected');
 		else if(whereAfter=="NEXT")
-			res.redirect('/dsr/Sprint_4/login/dashboard/items/cycle/rejected/next');
+			res.redirect('/dsr/Sprint_4A/login/dashboard/items/cycle/rejected/next');
 		else // this shouldn't happen(!). go to main page anyway
-			res.redirect('/dsr/Sprint_4/login/dashboard/rejected');
+			res.redirect('/dsr/Sprint_4A/login/dashboard/rejected');
 		
 	});
 	
