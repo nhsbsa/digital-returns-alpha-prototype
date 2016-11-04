@@ -50,7 +50,32 @@
             <hr style="padding:0px 0">
             
         
-            <p class="missing-info"><span class="missing-info-span">{{rejectedItemsCount}} item(s)</span> Missing information<a href="items/cycle/rejected/next" style="float:right; margin-left:10px;" >Add information</a></p>
+			{% if rejectedItemsCount==0 %}
+            <p class="no-missing-info">
+			{% endif %}
+
+			{% if rejectedItemsCount>0 %}
+            <p class="missing-info">
+			{% endif %}
+
+			
+			{% if rejectedItemsCount==0 %}
+			<span class="no-missing-info-span">
+			{% endif %}
+
+			{% if rejectedItemsCount>0 %}
+			<span class="missing-info-span">
+			{% endif %}			
+			
+			
+			{{rejectedItemsCount}} item(s)</span> Missing information
+			
+			{% if rejectedItemsCount>0 %}
+				<a href="/dsr/Sprint_4A/login/dashboard/items/cycle/rejected/next" style="float:right; margin-left:10px;" >Add information</a>
+			{% endif %}			
+
+			
+			</p>
             
              <hr style="padding:0 0 0 10px">
             
