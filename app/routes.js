@@ -62,6 +62,12 @@ module.exports = {
     }
 
     app.get('/', function (req, res) {
+		
+		// hitting main page resets all items back into rejected
+
+		while(pendingItemsJson.length>0)
+			rejectedItemsJson.push(pendingItemsJson.pop());
+		
       res.render('index');
     });
 
