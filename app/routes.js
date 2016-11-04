@@ -1,4 +1,5 @@
 var querystring = require('querystring');
+require('array.prototype.findindex');
 
 module.exports = {
   bind : function (app) {

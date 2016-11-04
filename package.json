@@ -23,6 +23,7 @@
     "node-sass": "3.4.2",
     "readdir": "0.0.6",
     "swig": "^1.4.2",
-    "swig-extras": "0.0.1"
+    "swig-extras": "0.0.1",
+	"array.prototype.findindex":"2.0.0"
   }
 }
