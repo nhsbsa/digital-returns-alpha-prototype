@@ -26,7 +26,7 @@
     
     <div style="margin: 60px 0; width: 100%; padding-bottom:28px; border-bottom: 1px solid #667078">
             
-            <a style="font-size: 24px; text-decoration: none; color: #000; padding:30px; background-color:#fff; border: 1px solid #667078; border-bottom: 1px solid white" href="">Item payment summary</a>
+            <a style="font-size: 24px; text-decoration: none; color: #000; padding:30px; background-color:#fff; border: 1px solid #667078; border-bottom: 1px solid white" href="">Summary</a>
         
             <a style="font-size: 24px; text-decoration: none; margin: 0 0 5px 5px; padding:30px 30px 20px 30px; background-color:#dee0e2;" href="/dsr/Sprint_4A/login/dashboard/rejected">View all items</a>
         
@@ -50,11 +50,11 @@
             <hr style="padding:0px 0">
             
         
-            <p style="font-size: 19px; padding: 20px; background-color:#f7e6e8;"><span style="padding-right: 15px; margin-right: 10px; color: #B10E1E; border-right: 1px solid #000;">{{rejectedItemsCount}} item(s)</span> Missing information<a href="items/cycle/rejected/next" style="float:right; margin-left:10px;" >Add information</a></p>
+            <p class="missing-info"><span class="missing-info-span">{{rejectedItemsCount}} item(s)</span> Missing information<a href="items/cycle/rejected/next" style="float:right; margin-left:10px;" >Add information</a></p>
             
              <hr style="padding:0 0 0 10px">
             
-            <p style="color: grey; padding: 10px 20px 0 20px;font-size: 19px; "><span style=" padding-right: 15px; margin-right: 10px; border-right: 1px solid #000;">{{pendingItemsCount}} item(s)</span> Information received and being reviewed<a href="rejected" style="float:right; margin-left:10px;" ></a></p>
+            <p style="padding: 10px 20px 0 20px;font-size: 19px; "><span style=" padding-right: 15px; margin-right: 10px; border-right: 1px solid #000;">{{pendingItemsCount}} item(s)</span> Information received and being reviewed<a href="rejected" style="float:right; margin-left:10px;" ></a></p>
             
              <hr style="padding:10px 0">
             
@@ -82,7 +82,7 @@
         
         <p style="color:#6F777B; margin: 5px 0 30px 0">Items received and approved by <strong>19/12/2016</strong> will be added to this payment</p>
         
-        <p style="font-size: 19px; margin-top: 15px; padding: 20px; background-color:#E6EEEA;"><span style="padding-right: 15px; margin-right: 10px; border-right: 1px solid #006435; color: #006435;">1 item(s)</span>Approved and added to payment</p>
+        <p class="accepted-info"><span class="accepted-info-span">1 item(s)</span>Approved and added to payment</p>
     
     </div>
     
