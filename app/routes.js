@@ -462,7 +462,9 @@ module.exports = {
 		res.render('dsr/Sprint_4A/login/dashboard/rejected',
         {
 			"rejectedItems" : rejectedItemsJson,
-			"pendingItems" : pendingItemsJson
+			"pendingItems" : pendingItemsJson,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
         }
       );
 	});

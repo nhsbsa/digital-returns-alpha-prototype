@@ -48,7 +48,16 @@
         
         <div style="margin-top:70px;" class="column-two-thirds">
             
-            <p class="lede" style="margin-bottom: 25px;">Tell us more about what you dispensed</p>
+            <p class="lede" style="margin-bottom: 25px;">
+			
+			{% if rejectedItemsCount>0 %}
+				Tell us more about what you dispensed
+			{% endif %}
+			{% if rejectedItemsCount==0 %}
+				there are none
+			{% endif %}
+			
+			</p>
             
             <table style="font-size:18px;">
         
@@ -75,7 +84,18 @@
                 
         <div class="column-two-thirds" style="margin-top: 30px;">
             
-    <p  class="lede" style="margin-bottom: 35px;">Information received and being reviewed</p>
+    <p  class="lede" style="margin-bottom: 35px;">
+	
+			{% if pendingItemsCount>0 %}
+				Information received and being reviewed
+			{% endif %}
+			{% if pendingItemsCount==0 %}
+				there are none
+			{% endif %}	
+	
+	
+	
+	</p>
             
             <table style="font-size:18px;">
         
