@@ -51,7 +51,14 @@
       
              <h1 class="heading-large">Dispensed item</h1>
             
+			{% if packSizeError=='true' || supplierError=='true' %}
+            <p class="field-errors">
+				There are errors top of page
+			</p>
+			{% endif %}
+			
             <p class="lede">Complete the missing information</p>
+						
             
              <form id="form" action="/dsr/Sprint_4A/login/dashboard/items/cycle/submit/{{selectedItemId}}" method="get" class="form">
 
@@ -65,10 +72,13 @@
               {{selectedPresentation}}
           </div>
                   
+          <div class="form-group {% if supplierError=='true' %} error {% endif %}">
            <p><legend  class="form-label" >Supplier/manufacturer</legend></p>
-            
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
+
+		  {% if supplierError=='true' %}
+				<span class="error-message">supplier field error message</span>
+			{% endif %}		  
+            <input name="supplierInput" type="text" id="first-label" class="form-control {% if supplierError=='true' %} field-error {% endif %}">
           </div>
                   
            <p><legend  class="form-label">Quantity</legend></p>
@@ -77,9 +87,14 @@
               {{selectedQty}}
           </div>
                  
-                  <p><legend  class="form-label" >Pack size</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
+          <div class="form-group {% if packSizeError=='true' %} error {% endif %}">
+             <p><legend  class="form-label" >Pack size</legend></p>
+		  
+			{% if packSizeError=='true' %}
+				<span class="error-message">pack size field error message</span>
+			{% endif %}		  
+		  
+            <input name="packSizeInput" type="text" id="first-label" class="form-control {% if packSizeError=='true' %} field-error {% endif %}">
           </div>
                   
             <p><legend  class="form-label">Pack price</legend></p>

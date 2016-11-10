@@ -517,7 +517,9 @@ module.exports = {
 			"patientName" : item.patientName,
 			"patientDob" : item.patientDob,
 			"patientNhsNum" : item.patientNhsNum,
-			"after" : req.query.after
+			"after" : req.query.after,
+			"packSizeError" : req.query.packSizeError,
+			"supplierError" : req.query.supplierError
         }
       );
 	});
@@ -527,6 +529,14 @@ module.exports = {
 	app.get('/dsr/Sprint_4A/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
 		
 		var selectedItemId = req.params.itemId;
+		var supplierError=false;
+		var packSizeError=false;
+		
+		if(req.query.supplierInput=="")
+			supplierError=true;
+		
+		if(req.query.packSizeInput=="")
+			packSizeError=true;
 
 		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
 			return elementInArray.id==selectedItemId;
@@ -538,7 +548,8 @@ module.exports = {
 		}
 		);
 		
-		if(indexInRejected>=0 && indexInPending==-1)
+		if((supplierError==false || packSizeError==false)
+			&& indexInRejected>=0 && indexInPending==-1)
 		{
 			var moveThisRow=rejectedItemsJson[indexInRejected];
 			rejectedItemsJson.splice(indexInRejected, 1);
@@ -546,8 +557,11 @@ module.exports = {
 		}
 		
 		// either go to the next, or back to the main page
+		// or re-display the current page if there's an error
 		var whereAfter=req.query.after;
-		if(whereAfter=="MAIN")
+		if(supplierError==true || packSizeError==true)
+			res.redirect('/dsr/Sprint_4A/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError);
+		else if(whereAfter=="MAIN")
 			res.redirect('/dsr/Sprint_4A/login/dashboard/rejected');
 		else if(whereAfter=="NEXT")
 			res.redirect('/dsr/Sprint_4A/login/dashboard/items/cycle/rejected/next');
@@ -555,8 +569,6 @@ module.exports = {
 			res.redirect('/dsr/Sprint_4A/login/dashboard/rejected');
 		
 	});
-	
-	
   }
 };
 
