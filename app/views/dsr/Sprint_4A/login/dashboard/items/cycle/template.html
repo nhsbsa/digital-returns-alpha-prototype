@@ -53,7 +53,7 @@
             
             <p class="lede">Complete the missing information</p>
             
-             <form action="/" method="post" class="form">
+             <form id="form" action="/dsr/Sprint_4A/login/dashboard/items/cycle/submit/{{selectedItemId}}" method="get" class="form">
 
       <div class="form-item-wrapper">
               
@@ -90,10 +90,13 @@
                   
         </fieldset>
       </div>
-         
-        <p><a href="/dsr/Sprint_4A/login/dashboard/items/cycle/submit/{{selectedItemId}}?after={{after}}" class="button button-get-started">Submit</a><a style="margin-left:10px" href="2" class="button button-secondary">Skip</a></p>
-		 
 
+		 <input type="hidden" name="after" value="{{after}}">
+		 
+	  
+        <p><a href="#" class="button button-get-started" onclick="document.getElementById('form').submit(); return false">Submit</a><a style="margin-left:10px" href="2" class="button button-secondary">Skip</a></p>
+
+		
 		 
   </form>
            
