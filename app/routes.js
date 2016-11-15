@@ -433,6 +433,10 @@ module.exports = {
       );
     });
 
+	//////////////////////////
+	/// sprint 4
+
+	
 	var rejectedItemsJson=[
 		{"id" : "item1", "productName" : "Carmellose",     "presentation" : "tablets", "strength" : "150ml", "qty" : "28", "patientName" : "Hadworth", "patientDob" : "10/11/1981", "patientNhsNum" : "6583257485"},
 		{"id" : "item2", "productName" : "Ranitidine",      "presentation" : "suspension", "strength" : "200mg", "qty" : "12", "patientName" : "Harding", "patientDob" : "05/09/1976", "patientNhsNum" : "658732165"},
@@ -571,6 +575,137 @@ module.exports = {
 			res.redirect('/dsr/Sprint_4A/login/dashboard/rejected');
 		
 	});
+	
+	//////////////////////////
+	/// sprint 5
+
+	app.get('/dsr/Sprint_5/login/dashboard', function(req, res) {
+		
+		res.render('dsr/Sprint_5/login/dashboard',
+        {
+			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	app.get('/dsr/Sprint_5/login/dashboard/rejected', function(req, res) {
+		
+		res.render('dsr/Sprint_5/login/dashboard/rejected',
+        {
+			"rejectedItems" : rejectedItemsJson,
+			"pendingItems" : pendingItemsJson,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	// show the selected item
+	app.get('/dsr/Sprint_5/login/dashboard/items/cycle/rejected/next', function(req, res) {
+	
+		if(rejectedItemsJson.length>0)
+		{
+			// get first rejected item
+			var firstItemId=rejectedItemsJson[0].id;
+			// show it
+			res.redirect('/dsr/Sprint_5/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT');		
+		}
+		else
+		{
+			// no rejected items. go to dashboard page
+			res.redirect('/dsr/Sprint_4A/login/dashboard');		
+		}
+	
+	});
+	
+	// show the selected item
+	app.get('/dsr/Sprint_5/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var item;
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);		
+		
+		// the entry is in either rejectedItemsJson or pendingItemsJson
+		if(indexInRejected!=-1)
+			item=rejectedItemsJson[indexInRejected];
+		else if(indexInPending!=-1)
+			item=pendingItemsJson[indexInPending];
+			
+		res.render('dsr/Sprint_5/login/dashboard/items/cycle/template',
+        {
+			"selectedItemId" : item.id,
+			"selectedProductName" : item.productName,
+			"selectedPresentation" : item.presentation,
+			"selectedStrength" : item.strength,
+			"selectedQty" : item.qty,
+			"patientName" : item.patientName,
+			"patientDob" : item.patientDob,
+			"patientNhsNum" : item.patientNhsNum,
+			"after" : req.query.after,
+			"packSizeError" : req.query.packSizeError,
+			"supplierError" : req.query.supplierError
+        }
+      );
+	});
+	
+	// submit the selected item
+	// url query param = "after". set to either NEXT or MAIN
+	app.get('/dsr/Sprint_5/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var supplierError=false;
+		var packSizeError=false;
+		
+		if(req.query.supplierInput=="")
+			supplierError=true;
+		
+		if(req.query.packSizeInput=="")
+			packSizeError=true;
+
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+		
+		if((supplierError==false || packSizeError==false)
+			&& indexInRejected>=0 && indexInPending==-1)
+		{
+			var moveThisRow=rejectedItemsJson[indexInRejected];
+			rejectedItemsJson.splice(indexInRejected, 1);
+			pendingItemsJson.push(moveThisRow);
+		}
+		
+		// either go to the next, or back to the main page
+		// or re-display the current page if there's an error
+		var whereAfter=req.query.after;
+		if(supplierError==true || packSizeError==true)
+			res.redirect('/dsr/Sprint_5/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError);
+		else if(whereAfter=="MAIN")
+			res.redirect('/dsr/Sprint_5/login/dashboard/rejected');
+		else if(whereAfter=="NEXT")
+			res.redirect('/dsr/Sprint_5/login/dashboard/items/cycle/rejected/next');
+		else // this shouldn't happen(!). go to main page anyway
+			res.redirect('/dsr/Sprint_5/login/dashboard/rejected');
+		
+	});	
+	
+	
   }
 };
 
