@@ -67,7 +67,7 @@
 		<tr style="border-bottom: 1px solid grey">
 		  <td>{{row.productName}}</td>
 		  <td>{{row.presentation}}</td>
-		  <td class="numeric last"><a href="../dashboard/items/cycle/rejected/{{row.id}}?after=MAIN">Add information</a></td>
+		  <td class="numeric last"><a href="../dashboard/items/cycle/rejected/{{row.id}}?after=MAIN&startingUnpaidItemCount={{rejectedItemsCount}}&unpaidItemRunning={{loop.index}}">Add information</a></td>
 		  </tr>
    {% endfor %}
 	   

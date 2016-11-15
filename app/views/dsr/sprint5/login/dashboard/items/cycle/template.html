@@ -6,7 +6,7 @@
 
 <main id="content" role="main">
     
-<div style="margin: 0 40%; width: 20%;"><p><strong>Item 1</strong> of <strong>6</strong></p></div>
+<div style="margin: 0 40%; width: 20%;"><p><strong>Item {{unpaidItemRunning}}</strong> of <strong>{{startingUnpaidItemCount}}</strong></p></div>
              
     <div style="border-bottom: solid 1px #e5f0f9;"></div>
     
@@ -111,6 +111,8 @@
       </div>
 
 		 <input type="hidden" name="after" value="{{after}}">
+		 <input type="hidden" name="startingUnpaidItemCount" value="{{startingUnpaidItemCount}}">
+		 <input type="hidden" name="unpaidItemRunning" value="{{unpaidItemRunning}}">
 		 
 	  
         <p><a href="#" class="button button-get-started" onclick="document.getElementById('form').submit(); return false">Submit</a><a style="margin-left:10px" href="2" class="button button-secondary">Skip</a></p>

@@ -609,8 +609,14 @@ module.exports = {
 		{
 			// get first rejected item
 			var firstItemId=rejectedItemsJson[0].id;
+			
+			// unpaid item count - held at the figure when the user first clicked "Add Information"
+			var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+			// running total of items corrected in a run
+			var unpaidItemRunning=parseInt(req.query.unpaidItemRunning)+1;
+			
 			// show it
-			res.redirect('/dsr/sprint5/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT');		
+			res.redirect('/dsr/sprint5/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);		
 		}
 		else
 		{
@@ -654,7 +660,9 @@ module.exports = {
 			"patientNhsNum" : item.patientNhsNum,
 			"after" : req.query.after,
 			"packSizeError" : req.query.packSizeError,
-			"supplierError" : req.query.supplierError
+			"supplierError" : req.query.supplierError,
+			"startingUnpaidItemCount" : req.query.startingUnpaidItemCount,
+			"unpaidItemRunning" : req.query.unpaidItemRunning
         }
       );
 	});
@@ -673,6 +681,11 @@ module.exports = {
 		if(req.query.packSizeInput=="")
 			packSizeError=true;
 
+		// unpaid item count - held at the figure when the user first clicked "Add Information"
+		var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+		// running total of items corrected in a run
+		var unpaidItemRunning=parseInt(req.query.unpaidItemRunning);		
+		
 		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
 			return elementInArray.id==selectedItemId;
 		}
@@ -695,11 +708,11 @@ module.exports = {
 		// or re-display the current page if there's an error
 		var whereAfter=req.query.after;
 		if(supplierError==true || packSizeError==true)
-			res.redirect('/dsr/sprint5/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError);
+			res.redirect('/dsr/sprint5/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
 		else if(whereAfter=="MAIN")
 			res.redirect('/dsr/sprint5/login/dashboard/rejected');
 		else if(whereAfter=="NEXT")
-			res.redirect('/dsr/sprint5/login/dashboard/items/cycle/rejected/next');
+			res.redirect('/dsr/sprint5/login/dashboard/items/cycle/rejected/next?startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
 		else // this shouldn't happen(!). go to main page anyway
 			res.redirect('/dsr/sprint5/login/dashboard/rejected');
 		
