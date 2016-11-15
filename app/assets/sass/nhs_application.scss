@@ -71,3 +71,77 @@
   ul { @extend .list-bullet; }
   ol { @extend .list-number; }
 }
+
+.phase-banner-alpha {
+  @extend %site-width-container;
+  @extend %contain-floats;
+  padding: 15px 0 8px;
+  border-bottom: 1px solid #bfc1c3;
+}
+
+.phase-banner-alpha .phase-tag {
+  display: -moz-inline-stack;
+  display: inline-block;
+  margin: 0 8px 0 0;
+  padding: 2px 5px 0;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #d53880;
+}
+
+.phase-banner-alpha p {
+  display: table;
+  color: #000;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+}
+
+.disallowed-warning {
+    border: 5px solid #b10e1e;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right:15px;
+    margin-left:15px;
+    padding: 20px 15px 25px 20px;
+}
+
+.error {
+    margin-top:40px;
+    margin-bottom:40px;
+  margin-right: 15px;
+  border-left: 4px solid #b10e1e;
+  padding-left: 10px;
+}
+
+.error > .form-control {
+  border: 4px solid #b10e1e;
+  margin-top:5px;
+}
+
+@media (min-width: 641px) {
+  .error {
+    border-left: 5px solid #b10e1e;
+    padding-left: 15px;
+  }
+}
+
+.field-errors {
+  border: 4px solid #b10e1e;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px 10px 10px 20px;
+}
+
+.error-message{
+    color: #b10e1e;
+}

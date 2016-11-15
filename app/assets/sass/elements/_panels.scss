@@ -229,6 +229,7 @@
     font-size: 19px; 
     padding: 20px; 
     background-color:#fff;
+    border-bottom: 1px solid #bfc1c3;
 }
 
 .no-missing-info-span {
@@ -302,3 +303,4 @@
     @include fontsize(16, all);
   }
 }*/
+
