@@ -1,0 +1,170 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div style="margin-top: 0px;" class="grid-row">
+    
+    <div class="column-two-thirds">
+    
+    <h1 style="line-height: 1.04167; padding:50px 0 0 0;" class="heading-xlarge">Your account 
+    
+    <span style="font-size: 27px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Teds pharmacy  <a href="logout">Logout</a></span>
+    
+    </h1>
+
+    </div>
+    
+    <div class="column-third" style="margin-top:100px;">
+    
+    </div>
+        
+    </div>
+    
+    <div style="margin: 60px 0 30px 0; width: 100%; padding-bottom:28px; border-bottom: 1px solid #667078">
+            
+          
+        
+            <a style="font-size: 24px; text-decoration: none; margin: 0 5px 5px 0; padding:30px 30px 20px 30px; background-color:#dee0e2;" href="../dashboard/">Summary</a>
+        
+            <a style="font-size: 24px; text-decoration: none; color: #000; padding:30px; background-color:#fff; border: 1px solid #667078; border-bottom: 1px solid white" href="">View all items</a>
+        
+        </div>
+    
+    
+    
+    <div class="grid-row">
+        
+        <div class="column-third">
+            
+            <h1 class="heading-large">Item status</h1>
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">Missing information</h2>
+    
+        </div>
+        
+        <div style="margin-top:70px;" class="column-two-thirds">
+            
+            <p class="lede" style="margin-bottom: 25px;">
+			
+			{% if rejectedItemsCount>0 %}
+				These items have missing information
+			{% endif %}
+			{% if rejectedItemsCount==0 %}
+				You have no items with missing information
+			{% endif %}
+			
+			</p>
+            
+            <table style="font-size:18px;">
+        
+  <tbody style="line-height:55px;">
+  
+	{% for row in rejectedItems %}
+		<tr style="border-bottom: 1px solid grey">
+		  <td>{{row.productName}}</td>
+		  <td>{{row.presentation}}</td>
+		  <td class="numeric last"><a href="../dashboard/items/cycle/rejected/{{row.id}}?after=MAIN">Add information</a></td>
+		  </tr>
+   {% endfor %}
+	   
+  </tbody>
+</table>
+            
+        </div>
+        
+        <div class="column-third" style="margin-top: 30px;">
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">Information received</h2>
+    
+        </div>
+                
+        <div class="column-two-thirds" style="margin-top: 30px;">
+            
+    <p  class="lede" style="margin-bottom: 35px;">
+	
+			{% if pendingItemsCount>0 %}
+				We are reviewing the information you added
+			{% endif %}
+			{% if pendingItemsCount==0 %}
+				<span style="color:#DCDCDC">No submitted items</span>
+			{% endif %}	
+	
+	
+	
+	</p>
+            
+            <table style="font-size:18px;">
+        
+      <tbody style="line-height:55px; ">
+
+	  	{% for row in pendingItems %}
+		<tr style="border-bottom: 1px solid grey">
+		  <td>{{row.productName}}</td>
+		  <td>{{row.presentation}}</td>
+		  <td class="numeric last"><a href="../dashboard/items/cycle/rejected/{{row.id}}">Add information</a></td>
+		  </tr>
+		{% endfor %}
+    
+  </tbody>
+</table>
+                    
+        </div>
+        
+        <div class="column-third" style="margin-top: 40px;">
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">Disallowed</h2>
+    
+        </div>
+                
+        <div class="column-two-thirds" style="margin-top: 35px;">
+            
+    <p  class="lede" style="margin-bottom: 35px;">These items can't be paid</p>
+            
+            <table style="font-size:18px;">
+        
+      <tbody style="line-height:55px; ">
+      <tr>
+      <td>Ultron 500 </td>
+      <td>Appliance</td>
+      <td class="numeric last"><a href="items/disallowed_item">Find out why</a></td>
+      </tr>
+        
+  </tbody>
+</table>
+            
+        </div>
+            
+            
+            <div class="column-third" style="margin-top: 30px;">
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">Accepted</h2>
+    
+        </div>
+                
+        <div class="column-two-thirds" style="margin-top: 35px;">
+            
+    <p  class="lede" style="margin-bottom: 35px;">These items will now be paid</p>
+            
+            <table style="font-size:18px;">
+        
+      <tbody style="line-height:55px; ">
+      <tr>
+      <td>Carmellose </td>
+      <td>Eye drops</td>
+      <td class="numeric last"><a href="items/accepted_item">Find out when</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+        </div>
+          
+        </div>
+
+</main>
+
+{% endblock %}
