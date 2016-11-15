@@ -486,7 +486,7 @@ module.exports = {
 		else
 		{
 			// no rejected items. go to dashboard page
-			res.redirect('/dsr/sprint4_a/login/dashboard');		
+			res.redirect('/dsr/sprint4_a/login/dashboard/');		
 		}
 	
 	});
@@ -615,7 +615,7 @@ module.exports = {
 		else
 		{
 			// no rejected items. go to dashboard page
-			res.redirect('/dsr/sprint5/login/dashboard');		
+			res.redirect('/dsr/sprint5/login/dashboard/');		
 		}
 	
 	});
