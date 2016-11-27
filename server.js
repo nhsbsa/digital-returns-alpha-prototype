@@ -105,7 +105,7 @@ routes.bind(app);
 app.get(/^\/([^.]+)$/, function (req, res) {
 
 	var path = (req.params[0]);
-	if(path.endsWith('/')
+	if(path.endsWith('/'))
 		path=path.slice(0, -1);
 
 	res.render(path, function(err, html) {
