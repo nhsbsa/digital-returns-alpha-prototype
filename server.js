@@ -18,7 +18,7 @@ var path = require('path'),
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/app/views');
-app.set('strict routing', true);
+app.set('strict routing', false);
 
 // Template engine settings
 
