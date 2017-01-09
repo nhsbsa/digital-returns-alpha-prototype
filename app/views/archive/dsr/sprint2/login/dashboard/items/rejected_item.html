@@ -1,0 +1,104 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    
+     <div class="grid-row" style="margin-left: 0px;">
+    
+    <h2 style="margin-top:30px; line-height: 1.04167;" class="heading-large">Item 2
+    
+    <span style="font-size: 27px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px;">from prescription 3432212</span>  
+    
+    </h2>
+         
+           <hr>
+    
+    </div>
+          
+    
+    <div class="grid-row">
+        
+        <div class="column-two-thirds">
+            
+             <h2 class="heading-large">What did you dispense?</h2>
+    
+    <p class="lede">Complete the missing information</p>
+            
+            <form action="/" method="post" class="form">
+
+      <div class="form-item-wrapper">
+              
+              <fieldset>
+          <p><legend  class="form-label" >Drug name</legend></p>
+            
+          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
+              Carmellose
+          </div>
+                  
+            <p><legend  class="form-label">Presentation</legend></p>
+            
+          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
+              Eye drops
+          </div>
+                  
+           <p><legend  class="form-label" >Supplier/manufacturer</legend></p>
+            
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+                  <p><legend  class="form-label" >Strength</legend></p>
+            
+          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
+              0.5%
+          </div>
+                  
+                     <p><legend  class="form-label" >Number of items</legend></p>
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+                  <p><legend  class="form-label" >Pack size</legend></p>
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+            <p><legend  class="form-label" >Pack price</legend></p>
+            
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+        </fieldset>
+      </div>
+         
+         <p><a href="../../dashboard/rejected" class="button button-get-started">Submit</a></p>
+
+  </form>
+           
+             </div>
+            
+           <div class="column-third" style="padding: 25px; background-color:#C0E0B8; margin:0px 0 20px 0; color:#3171B8;">
+               
+            <p><strong>NHS Patient Number:</strong> 83293293</p>
+               
+               <h3 class="heading-medium">Prescribed item</h3>
+      
+      <ul style="margin-left: 20px; list-style-type: disc;">
+        <li>Carmellose</li>
+        <li>0.5%</li>
+        <li>eye drops</li>
+        <li>20</li>
+        </ul>
+               
+        </div>
+        
+    </div>
+    
+</main>
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div style="margin-top: 0px;" class="grid-row">
+    
+    <div class="column-two-thirds">
+    
+    <h1 style="line-height: 1.04167; padding:50px 0 0 0;" class="heading-xlarge">Your account 
+    
+    <span style="font-size: 27px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Teds pharmacy  <a href="logout">Logout</a></span>
+    
+    </h1>
+        
+    </div>
+    
+    <div class="column-third" style="margin-top:100px;">
+    
+    </div>
+        
+    </div>
+    
+    <div style="margin: 60px 0; width: 100%; padding-bottom:28px; border-bottom: 1px solid #667078">
+            
+            <a style="font-size: 24px; text-decoration: none; color: #000; padding:30px; background-color:#fff; border: 1px solid #667078; border-bottom: 1px solid white" href="">Summary</a>
+        
+            <a style="font-size: 24px; text-decoration: none; margin: 0 0 5px 5px; padding:30px 30px 20px 30px; background-color:#dee0e2;" href="rejected">View all items</a>
+        
+        </div>
+    
+    <div style="margin-top: 0px;" class="grid-row"> 
+        
+    <div class="column-third">
+        
+        <h2 style="font-size:80px; margin:30px 0 0 0">{{totalUnpaidItemsCount}}</h2>
+            
+        
+                    <p style="margin-top:15px;">unpaid items</p>
+        
+        </div>
+        
+        <div class="column-two-thirds">
+            
+            <p style="color:#6F777B; margin:0px 0 30px 0">Why are these unpaid?</p>
+            
+            <hr style="padding:0px 0">
+            
+        
+			{% if rejectedItemsCount==0 %}
+            <p class="no-missing-info">
+			{% endif %}
+
+			{% if rejectedItemsCount>0 %}
+            <p class="missing-info">
+			{% endif %}
+
+			
+			{% if rejectedItemsCount==0 %}
+			<span class="no-missing-info-span">
+			{% endif %}
+
+			{% if rejectedItemsCount>0 %}
+			<span class="missing-info-span">
+			{% endif %}			
+			
+			
+			{{rejectedItemsCount}} item(s)</span> Missing information
+			
+			{% if rejectedItemsCount>0 %}
+				<a href="items/cycle/rejected/next?startingUnpaidItemCount={{rejectedItemsCount}}&unpaidItemRunning=0" style="float:right; margin-left:10px;" >Add information</a>
+			{% endif %}			
+
+			
+			</p>
+            
+             <hr style="padding:0 0 0 10px">
+            
+            <p style="padding: 10px 20px 0 20px;font-size: 19px; "><span style=" padding-right: 15px; margin-right: 10px; border-right: 1px solid #000;">{{pendingItemsCount}} item(s)</span> Information received and being reviewed<a href="rejected" style="float:right; margin-left:10px;" ></a></p>
+            
+             <hr style="padding:10px 0">
+            
+            <p style="padding: 10px 20px 0 20px;font-size: 19px; "><span style=" padding-right: 15px; margin-right: 10px; border-right: 1px solid #000;">1 item(s)</span> Disallowed<a href="rejected" style="float:right; margin-left:10px;" ></a></p>
+            
+        </div>
+        
+        </div>
+    
+    <hr>
+    
+        <div style="margin-top: 0px;" class="grid-row">
+        
+    
+    <div class="column-third">
+        
+        <h2 style="font-size:36px; margin:20px 0 0 0px">31/12/2016</h2>
+            
+        
+                    <p style="margin-top:5px;">next payment</p>
+        
+    </div>
+    
+    <div class="column-two-thirds">
+        
+        <p style="color:#6F777B; margin: 5px 0 30px 0">Items received and approved by <strong>19/12/2016</strong> will be added to this payment</p>
+        
+        <p class="accepted-info"><span class="accepted-info-span">1 item(s)</span>Approved and added to payment</p>
+    
+    </div>
+    
+    </div>
+        
+</main>
+
+{% endblock %}

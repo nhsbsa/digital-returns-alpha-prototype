@@ -1,0 +1,135 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+<div style="margin: 0 40%; width: 20%;"><p><strong>Item {{unpaidItemRunning}}</strong> of <strong>{{startingUnpaidItemCount}}</strong></p></div>
+             
+    <div style="border-bottom: solid 1px #e5f0f9;"></div>
+    
+     <div class="grid-row" style="margin-top: 20px;">
+         
+         <div class="column-third"> 
+             
+            <h1 class="heading-large">Prescribed</h1>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Patient surname</span>
+                 
+                 {{patientName}} </h3>
+             
+             <h3>
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Patient address</span>
+                 
+                 </h3>
+                  
+                <p>123 Street name<br>
+                City name<br>
+                Town name<br>
+                NE11 7YG</p>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Date of birth</span>
+             
+             {{patientDob}} </h3>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">NHS Patient Number</span>
+             
+             {{patientNhsNum}} </h3>  
+             
+             <span style="margin-top: 25px; font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Item information</span>
+         
+             <ul style="margin: 10px 0 0 20px; list-style-type: disc;">
+                <li>{{selectedProductName}}</li>
+                <li>{{selectedStrength}}</li>
+                <li>{{selectedPresentation}}</li>
+                <li>{{selectedQty}}</li>
+            </ul>
+             
+             </div>
+         
+        <div class="column-two-thirds">
+      
+            <h1 class="heading-large">Dispensed item</h1>
+						
+            {% if packSizeError=='true' || supplierError=='true' %}
+            <div class="field-errors">
+            <h2 class="heading-medium">
+			Complete the missing information
+			</h2>
+            <p>All fields must be complete before you can submit this item</p>
+            </div>
+			{% endif %}
+            
+             <form id="form" action="../submit/{{selectedItemId}}" method="get" class="form">
+
+      <div class="form-item-wrapper">
+              
+              <fieldset>
+                  
+            <p><strong><legend  class="form-label">Presentation</legend></strong></p>
+            
+          <div>
+              {{selectedPresentation}}
+          </div>
+                  
+          <div class="form-group {% if supplierError=='true' %} error {% endif %}">
+             <p><legend  class="form-label"><strong>Supplier/manufacturer</strong></legend></p>
+
+		  {% if supplierError=='true' %}
+				<span class="error-message">You have not entered the supplier/manufacturer is for this item</span>
+			{% endif %}		  
+            <input name="supplierInput" type="text" id="first-label" class="form-control {% if supplierError=='true' %} field-error {% endif %}">
+          </div>
+                  
+           <p><legend  class="form-label"><strong>Quantity</strong></legend></p>
+            
+          <div>
+              {{selectedQty}}
+          </div>
+                 
+          <div class="form-group {% if packSizeError=='true' %} error {% endif %}">
+             <p><legend  class="form-label" ><strong>Pack size</strong></legend></p>
+		  
+			{% if packSizeError=='true' %}
+				<span class="error-message">You have not entered a pack size for this item</span>
+			{% endif %}		  
+		  
+            <input name="packSizeInput" type="text" id="first-label" class="form-control {% if packSizeError=='true' %} field-error {% endif %}">
+          </div>
+                  
+            <p><legend  class="form-label"><strong>Pack price</strong></legend></p>
+            
+          <div style="border-bottom: 1px solid #e5f0f9; padding-bottom: 30px; margin-bottom: 30px;">
+              £1.99
+          </div>
+                  
+        </fieldset>
+      </div>
+
+		 <input type="hidden" name="after" value="{{after}}">
+		 <input type="hidden" name="startingUnpaidItemCount" value="{{startingUnpaidItemCount}}">
+		 <input type="hidden" name="unpaidItemRunning" value="{{unpaidItemRunning}}">
+		 
+	  
+        <p><a href="#" class="button button-get-started" onclick="document.getElementById('form').submit(); return false">Submit</a><a style="margin-left:10px" href="" class="button button-secondary">Skip</a></p>
+
+		
+		 
+  </form>
+           
+             </div>
+        
+    </div>
+    
+</main>
+
+{% endblock %}

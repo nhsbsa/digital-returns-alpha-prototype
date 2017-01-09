@@ -211,49 +211,6 @@
     text-decoration: underline;
   }
 }
-
-.missing-info {
-    font-size: 19px; 
-    padding: 20px; 
-    background-color:#f7e6e8;
-}
-
-.missing-info-span {
-    padding-right: 15px; 
-    margin-right: 10px; 
-    color: #B10E1E; 
-    border-right: 1px solid #000;
-}
-
-.no-missing-info {
-    font-size: 19px; 
-    padding: 20px; 
-    background-color:#fff;
-    border-bottom: 1px solid #bfc1c3;
-}
-
-.no-missing-info-span {
-    padding-right: 15px; 
-    margin-right: 10px; 
-    color: #000; 
-    border-right: 1px solid #000;
-}
-
-.accepted-info {
-    font-size: 19px; 
-    margin-top: 15px; 
-    padding: 20px; 
-    background-color:#E6EEEA;
-}
-
-.accepted-info-span {
-    padding-right: 15px; 
-    margin-right: 10px; 
-    border-right: 1px solid #006435; 
-    color: #006435;
-}
-
-
 // Shared styles
 /*.appointment-option,
 .appointment-option:link,

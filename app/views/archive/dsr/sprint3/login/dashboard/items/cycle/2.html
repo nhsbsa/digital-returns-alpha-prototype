@@ -1,0 +1,112 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+     <div class="grid-row" style="margin-top: 20px;">
+        
+        <div class="column-half">
+            
+             <h1 class="heading-medium">Prescribed item</h1>
+            
+            <div style="margin-right:30px;">
+      
+             <span style="margin-top: 25px; font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Item information</span>
+         
+             <ul style="margin: 10px 0 0 20px; list-style-type: disc;">
+                <li>Carmellose</li>
+                <li>0.5%</li>
+                <li>eye drops</li>
+                <li>20</li>
+            </ul>
+                
+                </div>
+                    
+            <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Prescription Number</span>
+             
+             2133212 </h3>
+            
+         </div>
+         
+         <div class="column-half">  
+             
+            <h1 class="heading-medium">Patient details</h1>
+                     
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Surname</span>
+             
+             Hadworth </h3>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Date of birth</span>
+             
+             18/9/1985 </h3>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">NHS Patient Number</span>
+             
+             343432342 </h3>  
+             
+         </div>
+         
+        </div>
+    
+    <hr>
+    
+    <div class="grid-row" style="margin-top: 20px;">
+
+        
+        <div class="column-two-thirds">
+            
+            <h3 class="heading-large">What was dispensed?</h3>
+            
+            <form action="/" method="post" class="form">
+
+      <div class="form-item-wrapper">
+              
+              <fieldset>
+                  
+           <p><legend  class="form-label" >Supplier/manufacturer</legend></p>
+            
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+                     <p><legend  class="form-label" >Number of items</legend></p>
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+                  <p><legend  class="form-label" >Pack size</legend></p>
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+            <p><legend  class="form-label" >Pack price</legend></p>
+            
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+        </fieldset>
+      </div>
+         
+         <p><a href="3" class="button button-get-started">Submit</a><a style="margin-left:10px" href="3" class="button button-secondary">Skip</a></p>
+
+  </form>
+           
+             </div>
+        
+    </div>
+    
+</main>
+
+{% endblock %}

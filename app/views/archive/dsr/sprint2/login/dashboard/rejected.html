@@ -1,0 +1,246 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div style="margin-top: 0px;" class="grid-row">
+    
+    <div class="column-two-thirds">
+    
+    <h1 style="line-height: 1.04167; padding:50px 0 0 0;" class="heading-xlarge">Your account 
+    
+    <span style="font-size: 27px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Teds pharmacy  <a href="logout">Logout</a></span>
+    
+    </h1>
+
+    </div>
+    
+    <div class="column-third" style="margin-top:100px;">
+    
+    </div>
+        
+    </div>
+    
+    <div style="margin: 60px 0; width: 100%; padding-bottom:28px; border-bottom: 1px solid #667078">
+            
+          
+        
+            <a style="font-size: 24px; text-decoration: none; margin: 0 5px 5px 0; padding:30px 30px 20px 30px; background-color:#dee0e2;" href="../dashboard/">Item payment summary</a>
+        
+            <a style="font-size: 24px; text-decoration: none; color: #000; padding:30px; background-color:#fff; border: 1px solid #667078; border-bottom: 1px solid white" href="">View all items</a>
+        
+        </div>
+    
+    
+    
+    <div class="grid-row">
+        
+         <div class="column-third">
+                   
+        </div>
+        
+        <div class="column-third">
+            
+            <h2 style="color: #6F777B; margin-top:0px;" class="heading-medium">from latest <br>submission</h2>
+    
+        </div>
+        
+        <div style="margin-top:0px;" class="column-two-thirds">
+            
+             <h2 style="margin-bottom: 30px;" class="heading-medium">February</h2>
+            
+            <table style="font-size:18px;">
+  <thead>
+      <tr>
+        <th width="30%" scope="col">Prescription</th>
+        <th width="20%" scope="col">Item</th>
+        <th width="35%" scope="col">Status</th>
+        <th width="15%" class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+        
+  <tbody style="line-height:70px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>3432212 </td>
+      <td>2</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">MISSING INFORMATION</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+      
+       <tr style="border-bottom: 1px solid grey">
+      <td>3665213 </td>
+      <td>5</td>
+      <td><span style="color: #00823B; padding: 4px; border: 1px solid #00823B">ITEM APPROVED</span></td>
+      <td class="numeric last"><a href="items/accepted_item">View this</a></td>
+      </tr>
+        
+      <tbody style="line-height:70px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>9822654 </td>
+      <td>1</td>
+       <td><span style="color: #FFBF47; padding: 4px; border: 1px solid #FFBF47">BEING PROCESSED</span></td>
+      <td class="numeric last"><a href="items/processed_item">View this</a></td>
+      </tr>
+          
+      <tbody style="line-height:70px; ">
+      <tr>
+      <td>5261754 </td>
+      <td>4</td>
+      <td><span style="padding: 4px; border: 1px solid #000">ITEM DISALLOWED</span></td>
+      <td class="numeric last"><a href="items/disallowed_item">View this</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+        </div>
+          
+        </div>
+        
+     <div class="grid-row">
+         
+         <div style="margin: 40px 0 20px 0; background-color: #E5F0F9;padding:20px 0 15px 20px;" class="notice">
+  <i class="icon icon-important">
+    <span class="visuallyhidden">Warning</span>
+  </i>
+  <span style="position:absolute; padding: 8px 0 0 15px;"><strong  class="bold-small">
+    You still have items from previous submissions which have not been fixed.
+  </strong></span>
+        
+</div>
+         
+        <div class="column-third">
+            
+            <h2 style="color: #6F777B; margin-top:20px;"  class="heading-medium">from previous submissions</h2>
+    
+        </div>
+        
+        <div style="margin-top:25px;" class="column-two-thirds">
+            
+            <h2 style="margin-bottom: 30px;" class="heading-medium">January</h2>
+        
+              <table style="font-size:18px;">
+  <thead>
+      <tr>
+        <th width="30%" scope="col">Prescription</th>
+        <th width="20%" scope="col">Item</th>
+        <th width="35%" scope="col">Status</th>
+        <th width="15%" class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+        
+  <tbody style="line-height:70px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>928921 </td>
+      <td>3</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">MISSING INFORMATION</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+        
+      <tbody style="line-height:70px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>982728 </td>
+      <td>4</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">MISSING INFORMATION</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+          
+      <tbody style="line-height:70px; ">
+      <tr>
+      <td>123222 </td>
+      <td>5</td>
+      <td><span style="padding: 4px; border: 1px solid #000">MISSING DISALLOWED</span></td>
+      <td class="numeric last"><a href="items/disallowed_item">View this</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+            <h2 style="margin-bottom: 30px;" class="heading-medium">December</h2>
+        
+    <table style="font-size:18px;">
+  <thead>
+      <tr>
+        <th width="30%" scope="col">Prescription</th>
+        <th width="20%" scope="col">Item</th>
+        <th width="35%" scope="col">Status</th>
+        <th width="15%" class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+        
+  <tbody style="line-height:70px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>392992 </td>
+      <td>2</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">MISSING INFORMATION</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+        
+      <tbody style="line-height:70px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>107222 </td>
+      <td>7</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">MISSING INFORMATION</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+          
+      <tbody style="line-height:70px; ">
+      <tr>
+      <td>389291 </td>
+      <td>5</td>
+      <td><span style="padding: 4px; border: 1px solid #000">ITEM DISALLOWED</span></td>
+      <td class="numeric last"><a href="items/disallowed_item">View this</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+           <h2 style="margin-bottom: 30px;" class="heading-medium">November</h2>
+        
+              <table style="font-size:18px;">
+  <thead>
+      <tr>
+        <th width="30%" scope="col">Prescription</th>
+        <th width="20%" scope="col">Item</th>
+        <th width="35%" scope="col">Status</th>
+        <th width="15%" class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+        
+  <tbody style="line-height:70px;">
+      <tr style="border-bottom: 1px solid grey">
+      <td>432214 </td>
+      <td>6</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">MISSING INFORMATION</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+        
+      <tbody style="line-height:70px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>726617 </td>
+      <td>5</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">MISSING INFORMATION</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+          
+      <tbody style="line-height:70px; ">
+      <tr>
+      <td>827718 </td>
+      <td>1</td>
+      <td><span style="padding: 4px; border: 1px solid #000">ITEM DISALLOWED</span></td>
+      <td class="numeric last"><a href="items/disallowed_item">View this</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+        </div>   
+        </div>
+
+
+</main>
+
+{% endblock %}

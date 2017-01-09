@@ -1,0 +1,183 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+       <p><a href="/dsr/login/dashboard/">Back</a></p>
+    
+    <h1 style="padding:10px 0 0px 0;" class="heading-large">Summary</h1>
+    
+    <p class="lede">These items have some missing information. </p>
+    
+<p>Once missing information is submitted and approved<br> items will be added to your next payment.</p>
+    
+    <hr>
+    
+    <div class="grid-row">
+        
+        <div class="column-third">
+            
+            <h2 style="margin-top:20px;" class="heading-medium">from latest <br>submission</h2>
+            
+            <h2 style="font-size:48px; margin-top:40px;">3</h2>
+      <p class="bold-xsmall"> items</p>
+    
+        </div>
+        
+        <div style="margin-top:30px;" class="column-two-thirds">
+            
+             <h1 class="heading-medium">February</h1>
+        
+             <table>
+  <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+  <tbody style="line-height:50px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>Item 3 is missing quantity</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">OUTSTANDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+      
+        <tr style="border-bottom: 1px solid grey">
+      <td>Item 5 is missing drug name</td>
+      <td><span style="color: #FFBF47; padding: 4px; border: 1px solid #FFBF47">PENDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">View</a></td>
+      </tr>
+      
+      <tr>
+      <td>Item 6 is missing quantity</td>
+      <td><span style="color: #00823B; padding: 4px; border: 1px solid #00823B">ACCEPTED</span></td>
+      <td class="numeric last"><a href="items/rejected_item">View</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+        </div>
+          
+        </div>
+        
+     <div class="grid-row">
+         
+         <div style="margin: 10px 0 20px 0; background-color: #E5F0F9;padding:20px 0 15px 20px;" class="notice">
+  <i class="icon icon-important">
+    <span class="visuallyhidden">Warning</span>
+  </i>
+  <span style="position:absolute; padding: 8px 0 0 15px;"><strong  class="bold-small">
+    You still have items from previous submissions which have not been fixed.
+  </strong></span>
+        
+</div>
+         
+        <div class="column-third">
+            
+            <h2 style="margin-top:20px;"  class="heading-medium">from previous submissions</h2>
+            
+            <h2 style="font-size:48px; margin-top:40px;">7</h2>
+      <p class="bold-xsmall"> items</p>
+    
+        </div>
+        
+        <div style="margin-top:30px;" class="column-two-thirds">
+            
+            <h1 class="heading-medium">January</h1>
+        
+              <table>
+  <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+  <tbody style="line-height:50px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>Item 3 is missing quantity</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">OUTSTANDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+      
+        <tr style="border-bottom: 1px solid grey">
+      <td>Item 5 is missing drug name</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">OUTSTANDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+      
+      <tr>
+      <td>Item 6 is missing quantity</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">OUTSTANDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+      
+      
+    
+  </tbody>
+</table>
+            
+            <h1 class="heading-medium">December</h1>
+        
+    <table>
+  <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+  <tbody style="line-height:50px; ">
+      <tr style="border-bottom: 1px solid grey">
+      <td>Item 3 is missing quantity</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">OUTSTANDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+      
+        <tr>
+      <td>Item 5 is missing drug name</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">OUTSTANDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+            <h1 class="heading-medium">November</h1>
+        
+              <table>
+  <thead>
+       <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th class="numeric last" scope="col"></th>
+      </tr>
+  </thead>
+  <tbody style="line-height:50px; ">
+     <tr style="border-bottom: 1px solid grey">
+      <td>Item 3 is missing quantity</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">OUTSTANDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+      </tr>
+      
+        <tr>
+      <td>Item 5 is missing drug name</td>
+      <td><span style="color: red; padding: 4px; border: 1px solid red">OUTSTANDING</span></td>
+      <td class="numeric last"><a href="items/rejected_item">Fix this</a></td>
+           </tr>
+      
+  </tbody>
+</table>
+            
+        </div>   
+        </div>
+
+
+</main>
+
+{% endblock %}
