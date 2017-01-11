@@ -438,12 +438,12 @@ module.exports = {
 
 	
 	var rejectedItemsJson=[
-		{"id" : "item1", "productName" : "Carmellose",     "presentation" : "tablets", "strength" : "150ml", "qty" : "28", "patientName" : "Hadworth", "patientDob" : "10/11/1981", "patientNhsNum" : "6583257485"},
-		{"id" : "item2", "productName" : "Ranitidine",      "presentation" : "suspension", "strength" : "200mg", "qty" : "12", "patientName" : "Harding", "patientDob" : "05/09/1976", "patientNhsNum" : "658732165"},
-		{"id" : "item3", "productName" : "Colecalciferol",  "presentation" : "capsules", "strength" : "0.5%", "qty" : "56", "patientName" : "Smith", "patientDob" : "01/03/1955", "patientNhsNum" : "2589637621"},
-		{"id" : "item4", "productName" : "Doxazosin",       "presentation" : "tablets", "strength" : "400ml", "qty" : "14", "patientName" : "Sherdian", "patientDob" : "14/02/2009", "patientNhsNum" : "1258963241"},
-		{"id" : "item5", "productName" : "Co-amoxiclav",    "presentation" : "oral suspension sugar free", "strength" : "3mg", "qty" : "1", "patientName" : "Morra", "patientDob" : "18/04/2004", "patientNhsNum" : "148365255"},
-		{"id" : "item6", "productName" : "Nifedipress",     "presentation" : "tablets", "strength" : "1ml", "qty" : "7", "patientName" : "Eddington", "patientDob" : "20/06/1966", "patientNhsNum" : "125681254"}
+		{"id" : "item1", "productName" : "Carmellose",     "presentation" : "Tablets", "strength" : "150mg", "qty" : "28", "patientName" : "Hadworth", "patientDob" : "10/11/1981", "patientNhsNum" : "6583257485"},
+		{"id" : "item2", "productName" : "Ranitidine",      "presentation" : "Suspension", "strength" : "200mg", "qty" : "12", "patientName" : "Harding", "patientDob" : "05/09/1976", "patientNhsNum" : "658732165"},
+		{"id" : "item3", "productName" : "Colecalciferol",  "presentation" : "Capsules", "strength" : "20,000u", "qty" : "56", "patientName" : "Smith", "patientDob" : "01/03/1955", "patientNhsNum" : "2589637621"},
+		{"id" : "item4", "productName" : "Doxazosin",       "presentation" : "Tablets", "strength" : "4mg M/R", "qty" : "14", "patientName" : "Sherdian", "patientDob" : "14/02/2009", "patientNhsNum" : "1258963241"},
+		{"id" : "item5", "productName" : "Co-amoxiclav",    "presentation" : "Oral suspension sugar free", "strength" : "125mg/31mg/5ml", "qty" : "100ml", "patientName" : "Morra", "patientDob" : "18/04/2004", "patientNhsNum" : "148365255"},
+		{"id" : "item6", "productName" : "Nifedipress",     "presentation" : "Tablets", "strength" : "10mg M/R", "qty" : "7", "patientName" : "Eddington", "patientDob" : "20/06/1966", "patientNhsNum" : "125681254"}
 	];
 
 	var pendingItemsJson=[
