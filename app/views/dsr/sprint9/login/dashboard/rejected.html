@@ -1,0 +1,236 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div style="margin-top: 0px;" class="grid-row">
+    
+    <div class="column-two-thirds">
+    
+    <h1 style="line-height: 1.04167; padding:50px 0 0 0;" class="heading-xlarge">Prescription submissions
+    
+    <span class="contractor">Teds pharmacy  <a href="logout">Logout</a></span>
+    
+    </h1>
+
+    </div>
+    
+    <div class="column-third" style="margin-top:60px;">
+        
+        <!-- <a href="submission/submission_form" style="float:right;" class="button secondary-button">New submission</a> -->
+    
+    </div>
+        
+    </div>
+    
+    <div style="margin: 60px 0 60px 0; width: 100%; padding-bottom:28px; border-bottom: 1px solid #667078">
+            
+            <a class="tab" href="../dashboard/">Summary</a>
+        
+            <a class="tabopen" href="">Unpaid items (6)</a>
+        
+            <a class="tab" href="../dashboard/returns">Payments</a>
+        
+            <a class="tab"  href="disallowed">Disallowed items</a>
+        
+        </div>
+    
+    
+    
+    <div class="grid-row">
+        
+<!--
+        
+        <div class="data">
+                
+                <ul class="chart">
+                    <li>
+                    <span style="height:5%" title="Jan"></span>
+                  </li>
+                    <li>
+                    <span style="height:5%" title="Feb"></span>
+                  </li>
+                    <li>
+                    <span style="height:5%" title="Mar"></span>
+                  </li>
+                  <li>
+                    <span style="height:5%" title="Apr"></span>
+                  </li>
+                  <li>
+                    <span style="height:20%" title="May"></span>
+                  </li>
+                  <li>
+                    <span style="height:50%" title="Jun"></span>
+                  </li>
+                  <li>
+                    <span style="height:15%" title="Jul"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Aug"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Sep"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Oct"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Nov"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Dec"></span>
+                  </li>
+                </ul>    
+            
+            </div>
+
+-->
+        
+        <div class="unpaid">
+        
+        <h1 class="heading-medium">Unpaid items</h1>
+            
+            <div class="submission-filter"><label>sort by</label>
+            
+            <select>
+            <option>Newest</option>
+            <option>Oldest</option>
+            </select>
+            
+            </div>
+        
+        <p style="color:#6f777b; margin-bottom:30px; border-bottom: 1px solid #6f777b; padding-bottom:30px;">Showing: <strong>past 12 months</strong> / <a href=""> all</a></p>
+            
+            </div>
+        
+        <div class="column-third">
+            
+            <h2 style="font-size:36px; margin:10px 0 10px 0">{{totalUnpaidItemsCount+6}} items</h2>
+            
+            <p>with missing information</p>
+            
+            <p style="color:#6F777B; margin:0px 0 30px 0; padding-top:0">We can't pay these items until you provide more information about them.</p>
+
+    
+        </div>
+        
+        <div class="column-two-thirds">
+            
+			<!--
+			{% if rejectedItemsCount>0 %}
+				<p>These items have missing information
+			{% endif %}
+                
+            -->
+                
+			{% if rejectedItemsCount==0 %}
+				<p><span style="color:#DCDCDC">No items with missing information</span></p>
+                    {% endif %}
+			
+			
+            
+            <table style="font-size:18px;">
+        
+  <tbody style="line-height:55px;">
+  
+	{% for row in rejectedItems %}
+		<tr style="border-bottom: 1px solid #bfc1c3">
+		  <td><strong>{{row.productName}}</strong></td>
+		  <td>{{row.presentation}}</td>
+		  <td class="numeric last"><a href="../dashboard/items/cycle/rejected/{{row.id}}?after=MAIN&startingUnpaidItemCount={{rejectedItemsCount}}&unpaidItemRunning={{loop.index}}">Add information</a></td>
+		  </tr>
+   {% endfor %}
+  </tbody>
+</table>
+            
+        </div>
+        
+        </div>
+        
+        <hr>
+        
+        <div class="grid-row">
+        
+        <div class="column-third">
+            
+            <h2 style="font-size:36px; margin:10px 0 10px 0">0 items</h2>
+            
+            <p>with information provided</p>
+            
+            <p style="color:#6F777B; margin:0px 0 30px 0; padding-top:0">These items will be added to your next payment once we approve the information added.</p>
+
+    
+        </div>
+                
+        <div class="column-two-thirds">
+            
+    <p>
+	
+			{% if pendingItemsCount>0 %}
+				We are reviewing the information you added
+			{% endif %}
+			{% if pendingItemsCount==0 %}
+				<span style="color:#DCDCDC">No items with added information</span>
+			{% endif %}	
+	
+	
+	
+	</p>
+            
+            <table style="font-size:18px;">
+        
+      <tbody style="line-height:55px; ">
+
+	  	{% for row in pendingItems %}
+		<tr style="border-bottom: 1px solid grey">
+		  <td><strong>{{row.productName}}</strong></td>
+		  <td>{{row.presentation}}</td>
+		  <td class="numeric last">
+    
+        <a href="../dashboard/items/cycle/rejected/{{row.id}}?startingUnpaidItemCount={{pendingItemsCount}}&unpaidItemRunning={{loop.index}}">Edit</a>
+              
+</td>
+		  </tr>
+		{% endfor %}
+    
+  </tbody>
+</table>
+                    
+        </div>
+            
+    </div>
+
+<!-- More confusing for user having accepted
+
+            <div class="column-third">
+            
+            <p><strong>Accepted</strong></p>
+                
+            <p>These items will now be paid</p>
+    
+        </div>
+                
+        <div class="column-two-thirds">
+            
+            <table style="font-size:18px;">
+        
+      <tbody style="line-height:55px; ">
+      <tr>
+      <td>Carmellose </td>
+      <td>Eye drops</td>
+      <td class="numeric last"><a href="items/accepted_item">Find out when</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+        </div>
+
+-->
+
+</main>
+
+{% endblock %}

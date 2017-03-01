@@ -1,0 +1,89 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+     <div class="grid-row" style="margin-top: 20px;">
+         
+         <div class="column-third" style="border-right: 1px solid grey">
+             
+             <h2 class="heading-large">For this item</h2>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">NHS Patient Number</span>
+             
+             343432342 </h3>  
+             
+             <span style="margin-top: 30px; font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Item information</span>
+         
+             <ul style="margin: 10px 0 0 20px; list-style-type: disc;">
+                <li>Carmellose</li>
+                <li>0.5%</li>
+                <li>eye drops</li>
+                <li>20</li>
+            </ul>
+             
+             <h3 class="heading-medium" style="margin-top:20px;">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Prescription Number</span>
+             
+             2133212 </h3>
+             
+             <h3 class="heading-medium" style="margin-top:20px;">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Date</span>
+             
+             18/9/2016 </h3>
+         
+        </div>
+        
+        <div class="column-two-thirds" style="padding-left: 80px;" >
+            
+            <h3 class="heading-large">What was dispensed?</h3>
+            
+            <form action="/" method="post" class="form">
+
+      <div class="form-item-wrapper">
+              
+              <fieldset>
+                  
+           <p><legend  class="form-label" >Supplier/manufacturer</legend></p>
+            
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+                     <p><legend  class="form-label" >Number of items</legend></p>
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+                  <p><legend  class="form-label" >Pack size</legend></p>
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+            <p><legend  class="form-label" >Pack price</legend></p>
+            
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+                  
+        </fieldset>
+      </div>
+         
+         <p><a href="../../dashboard/rejected" class="button button-get-started">Submit</a></p>
+
+  </form>
+           
+             </div>
+        
+    </div>
+    
+</main>
+
+{% endblock %}

@@ -1,0 +1,266 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        
+        <div class="sent">
+            
+            <div style="margin-top:10px;">
+            <span class="checkmark_container">
+           <span class="checkmark"  style="margin-top:10px;">
+                <div class="checkmark_circle"></div>
+                <div class="checkmark_stem"></div>
+                <div class="checkmark_kick"></div>
+            </span>
+            </span>
+                </div>
+            
+        <h2 class="heading-large" style="padding-top:5px;">Submission successful</h2>
+            
+            <p style="margin-bottom:0px; margin-top:30px;">Reference number:</p>
+            
+            <h3 class="heading-medium">38392929</h3>
+            
+            </div>
+        
+        <div class="column-third">
+            
+        </div>
+        
+    </div>
+    
+      <h2 class="heading-medium">What happens next?</h2>
+    
+    <hr>
+
+    <div class="grid-row">
+        
+        <div class="column-third">
+            
+            
+            <div class="steps">
+            
+            <span class="steps"><strong>1</strong></span><h2 class="heading-medium">Get a label</h2>
+                
+            </div>
+            
+        </div>
+             
+             <div class="column-two-thirds" style="margin-top:10px;">
+                 
+                 
+                 <ul>
+                 <li><a href="">Print a postage label</a></li>
+                 </ul>
+                 
+        </div>
+        
+    </div>
+    
+        <hr>
+    
+     <div class="grid-row">
+        
+        <div class="column-third">
+            
+           <span class="steps"><strong>2</strong></span> 
+                 
+    <h2 class="heading-medium">Prepare items</h2>
+            
+         </div>
+            
+             <div class="column-two-thirds" style="margin-top:10px;">
+    
+    <div class="guidance">
+        
+    <!--<h2>Complete one submission document only.</h2>-->
+        
+    <span class="remove"><strong>!</strong></span><p style="margin-bottom:30px;"><strong>Remove any adhesive tape, pins or staples</strong>.</p>
+        
+    <p>Use dividers to separate prescription forms into:</p>
+        
+        <table class="forms-table">
+        
+  <tr>
+    <td>Exempt</td>
+    <td>Paid</td>
+    <td>Old rate</td>
+  </tr>
+        
+        </table>
+        
+        <p>Within each group, order your FP10 forms:</p>
+        
+        <p><strong>Top</strong></p>
+        
+        <div style="clear:both;">
+            <div class="form-icon-lilac">FP10P</div> 
+            <div style="float: left; padding:20px;">and</div> 
+            <div style="margin-right:20px;" class="form-icon-green">FP10C/SS</div>
+            <div style="padding:20px 0;">by nurse prescriber</div>
+        </div>
+        
+        <div style="clear:both;">
+            <div class="form-icon-lilac">FP10P</div> 
+            <div style="float: left; padding:20px;">and</div> 
+            <div style="margin-right:20px;" class="form-icon-green">FP10C/SS</div>
+            <div style="padding:20px 0;">by supplementary prescriber</div>
+        </div>
+        
+        <div style="clear:both;">
+            <div class="form-icon-peach">FP10HP</div> 
+            <div style="float: left; padding:20px;">and</div>
+            <div style="margin-right:20px;" class="form-icon-green">FP10NC/C/SS</div>
+            <div style="padding:20px 0;">by hospital prescriber</div>
+        </div>
+        
+        <div style="clear:both;">
+            <div class="form-icon-green">FP10C</div> 
+            <div style="float: left; padding:20px;">and</div> 
+            <div style="margin-right:20px;" class="form-icon-green">FP10SS/NC/L</div>
+            <div style="padding:20px 0;">by prescribing doctor</div>
+        </div>
+        
+        <p style="clear:both; margin-top:20px;">All other FP10 forms</p>
+        
+        <p><strong>Bottom</strong></p>
+        
+
+<!--<table class="forms-table2">
+            
+            <td colspan="4" style="font-weight: bold;">Top</td>
+  <tr>
+    <td colspan="3">
+        
+                
+                <span class="form-icon-lilac">FP10P</span>and <span class="form-icon-green">FP10C/SS</span> by nurse prescriber
+      </td>
+  </tr>
+            
+  <tr>
+
+    <td colspan="1">
+                <span class="form-icon-lilac">FP10P</span>
+      </td>
+      <td colspan="1">
+                <span class="form-icon-green">FP10C/SS</span>
+      </td>
+      <td colspan="1">
+                by supplementary prescriber
+      </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+                
+                <span class="form-icon-peach">FP10HP</span>and <span class="form-icon-green">FP10NC/C/SS</span> by hospital prescriber
+      </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+                <span class="form-icon-green">FP10C</span>and<span class="form-icon-green">FP10SS/NC/L</span> by prescribing Doctor
+      </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+                All other FP10 forms
+      </td>
+  </tr>
+            <td colspan="4" style="font-weight: bold;">Bottom</td>
+</table>
+
+-->
+        
+        <!--
+        
+        <ul>
+            <li>Exempt</li>
+            <li>Paid</li>
+            <li>Old rate</li>
+        </ul>
+        
+        <p><strong>Within these groups, order your FP10 forms</strong></p>
+        
+        <ol>
+            <li>Practice nurse (PN indicator) including:
+                <span class="form-icons">P</span> 
+                <span class="form-icons">C</span> 
+                <span class="form-icons">SS</span>
+            </li>
+            
+            <li>Community nurse (CN indicator) including:
+                <span class="form-icons">P</span> 
+                <span class="form-icons">C</span> 
+                <span class="form-icons">SS</span> 
+            </li>
+            
+            <li>Supplementary prescriber (SP indicator) including:
+                <span class="form-icons">C</span>
+                <span class="form-icons">SS</span>
+            </li>
+            
+            <li>Hospital prescriber (HP Indicator) including:
+                <span class="form-icons">HP</span>
+                <span class="form-icons">NC</span>
+                <span class="form-icons">C</span>
+                <span class="form-icons">SS</span>
+            </li>
+            
+            <li>Prescribing Doctor including:
+                <span class="form-icons">C</span>
+                <span class="form-icons">SS</span>
+                <span class="form-icons">NC</span>
+                <span class="form-icons">L</span>
+            </li>
+            
+            <li>All other FP10 forms</li>
+        </ol>
+        
+        <!--<p>All of the following forms must be kept separate from the FP10 prescriptions in exempt and changeable groups (submitted for processing and reimbursement as in paragraph 2) and collated by form type as follows:</p>
+        
+        <ul>
+            <li>RA ie Repeat Authorising forms.</li>
+            <li>ETP Tokens for non payment.</li>
+        </ul>
+        
+        <p>Enter the required submission/declaration figures in the boxes opposite including electronic prescriptions. Do not include the number of any ETP tokens for non payment or the number of any Repeat Authorising forms in your FP10 forms/items declaration in part 1.</p>
+        
+        <p>Please fold this submission document along the fold line on page 4, so that the bar code is visable on the top, do not tear the form. Place this completed submission document on the top of the submitted form, pack securely in accordance with guidelines issued by NHS Protect. Despatch to the NHS Prescription by NO LATR THAN the THIRD day of the month following that in which they were dispensed, using the address lable provided.</p>-->
+        
+        <!--<li>Address labels (for submission of parcels to the NHS Prescription Services) are supplied by the NHS Presciption Services.</li>-->
+        
+        </div>
+        
+                 </div>
+                 
+    </div>
+                 
+        <hr>
+            
+            <div class="grid-row">
+        
+        <div class="column-third">
+            
+            <span class="steps"><strong>3</strong></span>
+                 
+    <h2 class="heading-medium">Post</h2>
+            
+         </div>
+            
+             <div class="column-two-thirds" style="margin-top:10px;">
+            
+        <p>Send batch by a <strong>secure, pre-paid</strong> postage method with <strong>track and trace.</strong></p>
+                
+        </div>
+    
+    </div>
+    
+    <hr>
+    
+</main>
+
+{% endblock %}

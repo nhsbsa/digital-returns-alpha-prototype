@@ -1,0 +1,115 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+     <div class="grid-row" style="margin-top: 20px;">
+         
+         <div style="background-color:#28a197; color: #fff; padding: 15px 0 10px 30px; margin: 15px;">
+            
+            <h2 class="heading-medium">Additional information received and accepted</h2>
+            
+            <p>You will be paid for this item in your next payment.</p>
+             
+            </div>
+        
+         <div class="column-third"> 
+             
+            <h1 class="heading-large">Prescribed</h1>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Patient surname</span>
+                 
+                 Smith </h3>
+             
+             <h3>
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Patient address</span>
+                 
+                 </h3>
+                  
+                <p>123 Street name<br>
+                City name<br>
+                Town name<br>
+                NE11 7YG</p>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Date of birth</span>
+             
+             18/9/1985 </h3>
+             
+             <h3 class="heading-medium">
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">NHS Patient Number</span>
+             
+             343432342 </h3>  
+             
+             <span style="margin-top: 25px; font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Item information</span>
+         
+             <ul style="margin: 10px 0 0 20px; list-style-type: disc;">
+                <li>Ultron 500</li>
+                <li>YSH Pharma LTD</li>
+                <li>1</li>
+            </ul>
+             
+             </div>
+         
+        <div class="column-two-thirds">
+      
+             <h1 class="heading-large">Dispensed</h1>
+            
+             <form action="/" method="post" class="form">
+
+      <div class="form-item-wrapper">
+              
+              <fieldset>
+                  
+            <p><legend  class="form-label">Presentation</legend></p>
+            
+          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
+              Eye drops
+          </div>
+                  
+           <p><legend  class="form-label" >Supplier/manufacturer</legend></p>
+            
+          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
+              YSH Pharma LTD
+          </div>
+                  
+           <p><legend  class="form-label">Quantity</legend></p>
+            
+          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
+              2
+          </div>
+                  
+                  <p><legend  class="form-label" >Pack size</legend></p>
+          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
+              12
+          </div>
+                  
+            <p><legend  class="form-label">Pack price</legend></p>
+            
+          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey; margin-bottom:25px;">
+              £1.99
+          </div>
+                  
+        </fieldset>
+      </div>
+         
+  </form>
+                
+            
+         </div>
+    
+    <hr>
+         
+    </div>
+    
+</main>
+
+{% endblock %}

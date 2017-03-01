@@ -1,0 +1,76 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+     <div class="grid-row" style="margin-top: 20px;">
+        
+         <div class="column-two-thirds">
+             
+             <h1 class="heading-large">Make a new submission</h1>
+             
+         </div>
+         
+    </div>
+    
+    <div class="steps">
+    
+    <span class="step-one">Step 1</span>
+    <span class="step-two"><strong>Step 2</strong></span>
+    <span class="step-three">Step 3</span>
+    
+    </div>
+    
+    <hr>
+    
+    <div class="grid-row">
+             
+             <div class="column-two-thirds">
+             
+             <div class="form-item-wrapper">
+        <fieldset>
+          <legend class="form-label-bold">Prescription items</legend>
+          <div class="form-group">
+            <label class="form-label" for="first-label">
+              Exempt items
+            </label>
+            <input type="text" id="first-label" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="last-label">
+              Paid items
+            </label>
+            <input type="text" id="last-label" class="form-control">
+          </div>
+            <div class="form-group">
+            <label class="form-label" for="last-label">
+              Paid items (old rate)
+            </label>
+            <input type="text" id="last-label" class="form-control">
+          </div>
+        </fieldset>
+             
+             </div>
+             
+         </div>
+             
+    </div>
+    
+    <hr>
+             
+             <div class="grid-row">
+                 
+                 <div class="column-two-thirds">
+                 
+        <a href="../submission/submission_form_finished" class="button">Submit</a>
+                     
+                 </div>
+                 
+             </div>
+    
+</main>
+
+{% endblock %}

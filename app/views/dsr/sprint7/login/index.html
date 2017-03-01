@@ -1,0 +1,39 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <h1 class="heading-xlarge">Log in</h1>
+ 
+     <form action="/" method="post" class="form">
+
+
+      <div class="form-item-wrapper">
+        <fieldset>
+          <p><legend class="form-label-bold">NHS number</legend></p>
+          <div class="form-group">
+            <input type="text" id="first-label" class="form-control">
+          </div>
+          <div class="form-group">
+              <p><legend class="form-label-bold">Password</legend></p>
+            <input type="text" id="last-label" class="form-control">
+          </div>
+        </fieldset>
+      </div>
+         
+         <p><a href="dashboard/" class="button button-get-started">Login</a></p>
+
+  </form>
+    
+    <hr>
+    
+    <ul>
+    <li><a href="">I don't have my NHS number</a></li>
+    <li><a href="">I've forgotten my password</a></li>
+    </ul>
+
+</main>
+
+{% endblock %}

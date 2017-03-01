@@ -1,0 +1,216 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div style="margin-top: 0px;" class="grid-row">
+        
+        <div style="margin: 20px 15px; background-color: #E5F0F9;padding:20px 0 15px 20px;" class="notice">
+  <i class="icon icon-important">
+    <span class="visuallyhidden">Warning</span>
+  </i>
+  <span style="position:absolute; padding: 8px 0 0 15px;"><strong  class="bold-small">
+    Please <a href="submission/submission_form">submit</a> your paper prescriptions for January
+  </strong></span>
+        
+</div>
+    
+    <div class="column-two-thirds">
+    
+    <h1 style="line-height: 1.04167; padding:30px 0 0 0;" class="heading-large">Prescription submissions
+    
+    <span class="contractor">Teds pharmacy  <a href="logout">Logout</a></span>
+    
+    </h1>
+        
+    </div>
+    
+    <div class="column-third" style="margin-top:30px;">
+        
+    </div>
+        
+    </div>
+    
+    <div style="margin: 60px 0; width: 100%; padding-bottom:28px; border-bottom: 1px solid #667078">
+            
+        <a class="tab" href="../dashboard/">Summary</a>
+        
+        <a class="tab" href="rejected">Unpaid items (6)</a>
+        
+        <a class="tab" href="disallowed">Disallowed items</a>
+        
+        <a class="tabopen" href="">Payment history</a>
+        
+        </div>
+    
+    <div style="margin-top: 0px;" class="grid-row">
+        
+        <div class="submissions">
+        
+        <h2 class="heading-medium">Payment history</h2>
+            
+        <div class="submission-filter"><label>sort by</label>
+            
+            <select>
+            <option>Newest</option>
+            <option>Oldest</option>
+            </select>
+            
+            </div>
+        
+        <p style="color:#6f777b; margin-bottom:30px;;">Showing: <strong>past 12 months</strong> / <a href=""> all</a></p>
+            
+             <div class="collapsible-item"> 
+                     
+            <div class="received-submission">
+                
+                <label class="collapse" for="_1">September - 2077 items<span class="received-when"> <p>15 Sep 2016</p> </span></label>
+<input id="_1" type="checkbox"> 
+<div class="more-info">
+    
+    <div style="margin-top: 0px;" class="grid-row">
+    
+    <div class="column-third">
+                 
+                     <h2 class="heading-medium">Breakdown:</h2>
+                     
+                 </div>
+                 
+                 <div class="column-two-thirds">   
+    
+    <div style="height: 35px;">
+                
+            <div style="width:40%; float:left;"><p style="color:#6F777B; margin-bottom:5px;"></p></div>
+            
+            <div style="width:20%; float:left;"><p style="color:#6F777B; margin-bottom:5px;">Sent</p></div>
+                
+            <div style="width:20%; float:left;"><p style="color:#6F777B; margin-bottom:5px;">Received</p></div>
+                
+            <div style="width:20%; float:left;"><p style="color:#6F777B; margin-bottom:5px;">Paid</p></div>
+            
+            </div>
+            
+            <div class="received-submission" style="height: 40px;">
+            
+            <div style="width:40%; float:left;"><p style="margin-bottom:5px; padding-top:12px;">EPS items</p></div>
+                
+            <div style="width:20%; float:left;"><div style="text-align: center; background-color:#E6EEEA; color: #006435; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>1124</strong></div></div>
+                
+            <div style="width:20%; float:left;"><div style="text-align: center; background-color:#E6EEEA; color: #006435; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>1124</strong></div></div>
+                
+            <div style="width:20%; float:left;"><div style="text-align: center; background-color:#006435; color: #fff; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>1124</strong></div></div>
+            
+            </div>
+            
+            <div class="received-submission" style="height: 40px;">
+            
+            <div style="width:40%; float:left;"><p style="margin-bottom:5px; padding-top:12px;">Paper items</p></div>
+                
+            <div style="width:20%; float:left;"><div style="text-align: center; background-color:#E6EEEA; color: #006435; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>953</strong></div></div>
+                
+            <div style="width:20%; float:left;"><div style="text-align: center; background-color:#E6EEEA; color: #006435; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>953</strong></div></div>
+                
+            <div style="width:20%; float:left;"><div style="text-align: center; background-color:#006435; color: #fff; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>953</strong></div></div>
+            
+            </div>
+            
+            <div class="received-submission" style="padding-top:30px;"><p><strong>Also in this payment:</strong></p>
+            
+            <ul>
+                    <li><strong>2 Remote delivery payments</strong></li> 
+                    <li><strong>17 Medicine use reviews</strong></li> 
+                </ul>
+                
+                </div>
+                     
+                      <div class="received-submission">
+            
+            <div style="text-align: center; background-color:#f7e6e8; color:#B10E1E; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>6</strong></div><p style="margin-bottom:5px; padding-top:12px;">prescriptions switched from exempt to paid</p>
+                
+            </div>
+                     
+    </div>
+            
+        </div>
+                
+                </div>
+    
+    </div>
+    
+    <!--
+                    
+                <p>This is made up of:</p>
+                    
+                <ul>
+                    <li><strong>342 Paper prescriptions</strong> <span style="color:#6F777B;">from September submission</span></li> 
+                    <li><strong>42 EPS prescriptions</strong> <span style="color:#6F777B;">from September submission</span></li>
+                    <li><strong>17 Medicine use reviews</strong> <span style="color:#6F777B;">from September submission</span></li> 
+                    <li><strong>3 EPS items</strong> <span style="color:#6F777B;">from previous submissions</span></li>
+                </ul>
+
+-->
+               
+                </div>
+                
+            <!--  
+                
+            <span><a href="">September - 345 items</a></span>
+                
+            <span class="received-when"> <p>15 Sep 2016</p> </span>
+                
+                <div class="more-info"><p>You were paid <strong>£12,342.99</strong></p>
+                    
+                <p>This includes:</p>
+                    
+                <ul>
+                    <li>342 items from September submission</li>    
+                    <li>3 additional items</li>
+                    <li>Remote delivery payment</li>
+                </ul>
+                
+                <a href="">View more</a>
+                
+                </div>
+                
+                
+            
+            </div>
+                 
+            </div>
+
+-->
+            
+            <div class="received-submission">
+                
+            <span><a href="">August - 543 items</a></span>
+                
+            <span class="received-when"><p>14 Aug 2016</p></span>
+            
+            </div>
+            
+            <div class="received-submission">
+                
+            <span><a href="">July - 223 items</a></span>
+                
+            <span class="received-when"><p>11 Jul 2016</p></span>
+            
+            </div>
+            
+            <div class="received-submission">
+                
+            <span><a href="">June - 532 items</a></span>
+                
+            <span class="received-when"><p>10 Jun 2016</p></span>
+            
+            </div>
+            
+        </div>
+        
+        </div>
+        
+</main>
+
+{% endblock %}

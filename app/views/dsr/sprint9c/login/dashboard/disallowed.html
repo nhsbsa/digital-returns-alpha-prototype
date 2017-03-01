@@ -1,0 +1,200 @@
+{% extends 'templates/nhs_transaction_layout.html' %}
+
+{% block pageTitle %}NHS.UK prototyping kit{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div style="margin-top: 0px;" class="grid-row">
+        
+       <div style="margin: 20px 15px; background-color: #E5F0F9;padding:20px 0 15px 20px;" class="notice">
+  <i class="icon icon-important">
+    <span class="visuallyhidden">Warning</span>
+  </i>
+  <span style="position:absolute; padding: 8px 0 0 15px;"><strong  class="bold-small">
+    Please <a href="submission/submission_form">submit</a> your paper prescriptions for January
+  </strong></span>
+        
+</div>
+    <div class="column-two-thirds">
+    
+    <h1 style="line-height: 1.04167; padding:30px 0 0 0;" class="heading-large">Prescription submissions
+    
+    <span class="contractor">Teds pharmacy  <a href="logout">Logout</a></span>
+    
+    </h1>
+
+    </div>
+    
+    <div class="column-third" style="margin-top:30px;">
+     
+    </div>
+        
+    </div>
+    
+    <div style="margin: 60px 0 60px 0; width: 100%; padding-bottom:28px; border-bottom: 1px solid #667078">
+            
+            <a class="tab" href="../dashboard/">Summary</a>
+        
+            <a class="tab" href="../dashboard/rejected">Unpaid items (6)</a>
+        
+            <a class="tabopen" href="">Disallowed items</a>
+        
+            <a class="tab" href="../dashboard/returns">Payment history</a>
+        
+        </div>
+    
+    <div class="grid-row">
+        
+<!--
+        
+        <div class="data">
+                
+                <ul class="chart">
+                    <li>
+                    <span style="height:5%" title="Jan"></span>
+                  </li>
+                    <li>
+                    <span style="height:5%" title="Feb"></span>
+                  </li>
+                    <li>
+                    <span style="height:5%" title="Mar"></span>
+                  </li>
+                  <li>
+                    <span style="height:5%" title="Apr"></span>
+                  </li>
+                  <li>
+                    <span style="height:20%" title="May"></span>
+                  </li>
+                  <li>
+                    <span style="height:50%" title="Jun"></span>
+                  </li>
+                  <li>
+                    <span style="height:15%" title="Jul"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Aug"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Sep"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Oct"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Nov"></span>
+                  </li>
+                    <li>
+                    <span style="height:15%" title="Dec"></span>
+                  </li>
+                </ul>    
+            
+            </div>
+
+-->
+        
+        <div class="unpaid">
+        
+        <h1 class="heading-medium">Disallowed items </h1>
+            
+            <div class="submission-filter"><label>sort by</label>
+            
+            <select>
+            <option>Newest</option>
+            <option>Oldest</option>
+            </select>
+            
+            </div>
+        
+        <p style="color:#6f777b; margin-bottom:30px; border-bottom: 1px solid #6f777b; padding-bottom:30px;">Showing: <strong>past 12 months</strong> / <a href=""> all</a></p>
+            
+        </div>
+        
+        <div class="column-third">
+            
+            <h2 style="font-size:36px; margin:10px 0 10px 0">6 items</h2>
+            
+            <p>These items can't be paid.</p>
+
+        </div>
+                
+        <div class="column-two-thirds">
+            
+            <table class="disallowed" style="font-size:18px;">
+        
+      <tbody>
+      <tr>
+      <td><strong>Ultron 500</strong> </td>
+      <td>Appliance</td>
+      <td class="numeric last"><a href="items/disallowed_item">Find out why</a></td>
+      </tr>
+          
+      <tr>
+      <td><strong>Ultron 500</strong> </td>
+      <td>Appliance</td>
+      <td class="numeric last"><a href="items/disallowed_item">Find out why</a></td>
+      </tr>
+          
+      <tr>
+      <td><strong>Ultron 500</strong> </td>
+      <td>Appliance</td>
+      <td class="numeric last"><a href="items/disallowed_item">Find out why</a></td>
+      </tr>
+          
+      <tr>
+      <td><strong>Ultron 500</strong> </td>
+      <td>Appliance</td>
+      <td class="numeric last"><a href="items/disallowed_item">Find out why</a></td>
+      </tr>
+          
+      <tr>
+      <td><strong>Ultron 500</strong> </td>
+      <td>Appliance</td>
+      <td class="numeric last"><a href="items/disallowed_item">Find out why</a></td>
+      </tr>
+          
+      <tr>
+      <td><strong>Ultron 500</strong> </td>
+      <td>Appliance</td>
+      <td class="numeric last"><a href="items/disallowed_item">Find out why</a></td>
+      </tr>
+        
+  </tbody>
+</table>
+            
+        </div>
+        
+    </div>
+
+<!-- More confusing for user having accepted
+
+            <div class="column-third">
+            
+            <p><strong>Accepted</strong></p>
+                
+            <p>These items will now be paid</p>
+    
+        </div>
+                
+        <div class="column-two-thirds">
+            
+            <table style="font-size:18px;">
+        
+      <tbody style="line-height:55px; ">
+      <tr>
+      <td>Carmellose </td>
+      <td>Eye drops</td>
+      <td class="numeric last"><a href="items/accepted_item">Find out when</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+            
+        </div>
+
+-->
+
+</main>
+
+{% endblock %}
