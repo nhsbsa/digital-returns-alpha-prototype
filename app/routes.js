@@ -859,8 +859,767 @@ module.exports = {
 			res.redirect('/dsr/sprint6/login/dashboard/rejected');
 		
 	});	
+      
+//////////////////////////
+	/// sprint 7
+
+	app.get('/dsr/sprint7/login/dashboard', function(req, res) {
+		
+		res.render('dsr/sprint7/login/dashboard',
+        {
+			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	app.get('/dsr/sprint7/login/dashboard/rejected', function(req, res) {
+		
+		res.render('dsr/sprint7/login/dashboard/rejected',
+        {
+			"rejectedItems" : rejectedItemsJson,
+			"pendingItems" : pendingItemsJson,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	// show the selected item
+	app.get('/dsr/sprint7/login/dashboard/items/cycle/rejected/next', function(req, res) {
 	
+		if(rejectedItemsJson.length>0)
+		{
+			// get first rejected item
+			var firstItemId=rejectedItemsJson[0].id;
+			
+			// unpaid item count - held at the figure when the user first clicked "Add Information"
+			var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+			// running total of items corrected in a run
+			var unpaidItemRunning=parseInt(req.query.unpaidItemRunning)+1;
+			
+			// show it
+			res.redirect('/dsr/sprint7/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);		
+		}
+		else
+		{
+			// no rejected items. go to dashboard page
+			res.redirect('/dsr/sprint7/login/dashboard/');		
+		}
 	
+	});
+	
+	// show the selected item
+	app.get('/dsr/sprint7/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var item;
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);		
+		
+		// the entry is in either rejectedItemsJson or pendingItemsJson
+		if(indexInRejected!=-1)
+			item=rejectedItemsJson[indexInRejected];
+		else if(indexInPending!=-1)
+			item=pendingItemsJson[indexInPending];
+			
+		res.render('dsr/sprint7/login/dashboard/items/cycle/template',
+        {
+			"selectedItemId" : item.id,
+			"selectedProductName" : item.productName,
+			"selectedPresentation" : item.presentation,
+			"selectedStrength" : item.strength,
+			"selectedQty" : item.qty,
+			"patientName" : item.patientName,
+			"patientDob" : item.patientDob,
+			"patientNhsNum" : item.patientNhsNum,
+			"after" : req.query.after,
+			"packSizeError" : req.query.packSizeError,
+			"supplierError" : req.query.supplierError,
+			"startingUnpaidItemCount" : req.query.startingUnpaidItemCount,
+			"unpaidItemRunning" : req.query.unpaidItemRunning
+        }
+      );
+	});
+	
+	// submit the selected item
+	// url query param = "after". set to either NEXT or MAIN
+	app.get('/dsr/sprint7/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var supplierError=false;
+		var packSizeError=false;
+		
+		if(req.query.supplierInput=="")
+			supplierError=true;
+		
+		if(req.query.packSizeInput=="")
+			packSizeError=true;
+
+		// unpaid item count - held at the figure when the user first clicked "Add Information"
+		var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+		// running total of items corrected in a run
+		var unpaidItemRunning=parseInt(req.query.unpaidItemRunning);		
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+		
+		if((supplierError==false || packSizeError==false)
+			&& indexInRejected>=0 && indexInPending==-1)
+		{
+			var moveThisRow=rejectedItemsJson[indexInRejected];
+			rejectedItemsJson.splice(indexInRejected, 1);
+			pendingItemsJson.push(moveThisRow);
+		}
+		
+		// either go to the next, or back to the main page
+		// or re-display the current page if there's an error
+		var whereAfter=req.query.after;
+		if(supplierError==true || packSizeError==true)
+			res.redirect('/dsr/sprint7/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else if(whereAfter=="MAIN")
+			res.redirect('/dsr/sprint7/login/dashboard/rejected');
+		else if(whereAfter=="NEXT")
+			res.redirect('/dsr/sprint7/login/dashboard/items/cycle/rejected/next?startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else // this shouldn't happen(!). go to main page anyway
+			res.redirect('/dsr/sprint7/login/dashboard/rejected');
+		
+	});
+      
+//////////////////////////
+	/// sprint 9
+
+	app.get('/dsr/sprint9/login/dashboard', function(req, res) {
+		
+		res.render('dsr/sprint9/login/dashboard',
+        {
+			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	app.get('/dsr/sprint9/login/dashboard/rejected', function(req, res) {
+		
+		res.render('dsr/sprint9/login/dashboard/rejected',
+        {
+			"rejectedItems" : rejectedItemsJson,
+			"pendingItems" : pendingItemsJson,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	// show the selected item
+	app.get('/dsr/sprint9/login/dashboard/items/cycle/rejected/next', function(req, res) {
+	
+		if(rejectedItemsJson.length>0)
+		{
+			// get first rejected item
+			var firstItemId=rejectedItemsJson[0].id;
+			
+			// unpaid item count - held at the figure when the user first clicked "Add Information"
+			var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+			// running total of items corrected in a run
+			var unpaidItemRunning=parseInt(req.query.unpaidItemRunning)+1;
+			
+			// show it
+			res.redirect('/dsr/sprint9/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);		
+		}
+		else
+		{
+			// no rejected items. go to dashboard page
+			res.redirect('/dsr/sprint9/login/dashboard/');		
+		}
+	
+	});
+	
+	// show the selected item
+	app.get('/dsr/sprint9/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var item;
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);		
+		
+		// the entry is in either rejectedItemsJson or pendingItemsJson
+		if(indexInRejected!=-1)
+			item=rejectedItemsJson[indexInRejected];
+		else if(indexInPending!=-1)
+			item=pendingItemsJson[indexInPending];
+			
+		res.render('dsr/sprint9/login/dashboard/items/cycle/template',
+        {
+			"selectedItemId" : item.id,
+			"selectedProductName" : item.productName,
+			"selectedPresentation" : item.presentation,
+			"selectedStrength" : item.strength,
+			"selectedQty" : item.qty,
+			"patientName" : item.patientName,
+			"patientDob" : item.patientDob,
+			"patientNhsNum" : item.patientNhsNum,
+			"after" : req.query.after,
+			"packSizeError" : req.query.packSizeError,
+			"supplierError" : req.query.supplierError,
+			"startingUnpaidItemCount" : req.query.startingUnpaidItemCount,
+			"unpaidItemRunning" : req.query.unpaidItemRunning
+        }
+      );
+	});
+	
+	// submit the selected item
+	// url query param = "after". set to either NEXT or MAIN
+	app.get('/dsr/sprint9/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var supplierError=false;
+		var packSizeError=false;
+		
+		if(req.query.supplierInput=="")
+			supplierError=true;
+		
+		if(req.query.packSizeInput=="")
+			packSizeError=true;
+
+		// unpaid item count - held at the figure when the user first clicked "Add Information"
+		var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+		// running total of items corrected in a run
+		var unpaidItemRunning=parseInt(req.query.unpaidItemRunning);		
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+		
+		if((supplierError==false || packSizeError==false)
+			&& indexInRejected>=0 && indexInPending==-1)
+		{
+			var moveThisRow=rejectedItemsJson[indexInRejected];
+			rejectedItemsJson.splice(indexInRejected, 1);
+			pendingItemsJson.push(moveThisRow);
+		}
+		
+		// either go to the next, or back to the main page
+		// or re-display the current page if there's an error
+		var whereAfter=req.query.after;
+		if(supplierError==true || packSizeError==true)
+			res.redirect('/dsr/sprint9/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else if(whereAfter=="MAIN")
+			res.redirect('/dsr/sprint9/login/dashboard/rejected');
+		else if(whereAfter=="NEXT")
+			res.redirect('/dsr/sprint9/login/dashboard/items/cycle/rejected/next?startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else // this shouldn't happen(!). go to main page anyway
+			res.redirect('/dsr/sprint9/login/dashboard/rejected');
+		
+	});	
+      
+      //////////////////////////
+	/// sprint 9b
+
+	app.get('/dsr/sprint9b/login/dashboard', function(req, res) {
+		
+		res.render('dsr/sprint9b/login/dashboard',
+        {
+			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	app.get('/dsr/sprint9b/login/dashboard/rejected', function(req, res) {
+		
+		res.render('dsr/sprint9b/login/dashboard/rejected',
+        {
+			"rejectedItems" : rejectedItemsJson,
+			"pendingItems" : pendingItemsJson,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	// show the selected item
+	app.get('/dsr/sprint9b/login/dashboard/items/cycle/rejected/next', function(req, res) {
+	
+		if(rejectedItemsJson.length>0)
+		{
+			// get first rejected item
+			var firstItemId=rejectedItemsJson[0].id;
+			
+			// unpaid item count - held at the figure when the user first clicked "Add Information"
+			var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+			// running total of items corrected in a run
+			var unpaidItemRunning=parseInt(req.query.unpaidItemRunning)+1;
+			
+			// show it
+			res.redirect('/dsr/sprint9b/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);		
+		}
+		else
+		{
+			// no rejected items. go to dashboard page
+			res.redirect('/dsr/sprint9b/login/dashboard/');		
+		}
+	
+	});
+	
+	// show the selected item
+	app.get('/dsr/sprint9b/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var item;
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);		
+		
+		// the entry is in either rejectedItemsJson or pendingItemsJson
+		if(indexInRejected!=-1)
+			item=rejectedItemsJson[indexInRejected];
+		else if(indexInPending!=-1)
+			item=pendingItemsJson[indexInPending];
+			
+		res.render('dsr/sprint9b/login/dashboard/items/cycle/template',
+        {
+			"selectedItemId" : item.id,
+			"selectedProductName" : item.productName,
+			"selectedPresentation" : item.presentation,
+			"selectedStrength" : item.strength,
+			"selectedQty" : item.qty,
+			"patientName" : item.patientName,
+			"patientDob" : item.patientDob,
+			"patientNhsNum" : item.patientNhsNum,
+			"after" : req.query.after,
+			"packSizeError" : req.query.packSizeError,
+			"supplierError" : req.query.supplierError,
+			"startingUnpaidItemCount" : req.query.startingUnpaidItemCount,
+			"unpaidItemRunning" : req.query.unpaidItemRunning
+        }
+      );
+	});
+	
+	// submit the selected item
+	// url query param = "after". set to either NEXT or MAIN
+	app.get('/dsr/sprint9b/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var supplierError=false;
+		var packSizeError=false;
+		
+		if(req.query.supplierInput=="")
+			supplierError=true;
+		
+		if(req.query.packSizeInput=="")
+			packSizeError=true;
+
+		// unpaid item count - held at the figure when the user first clicked "Add Information"
+		var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+		// running total of items corrected in a run
+		var unpaidItemRunning=parseInt(req.query.unpaidItemRunning);		
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+		
+		if((supplierError==false || packSizeError==false)
+			&& indexInRejected>=0 && indexInPending==-1)
+		{
+			var moveThisRow=rejectedItemsJson[indexInRejected];
+			rejectedItemsJson.splice(indexInRejected, 1);
+			pendingItemsJson.push(moveThisRow);
+		}
+		
+		// either go to the next, or back to the main page
+		// or re-display the current page if there's an error
+		var whereAfter=req.query.after;
+		if(supplierError==true || packSizeError==true)
+			res.redirect('/dsr/sprint9b/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else if(whereAfter=="MAIN")
+			res.redirect('/dsr/sprint9b/login/dashboard/rejected');
+		else if(whereAfter=="NEXT")
+			res.redirect('/dsr/sprint9b/login/dashboard/items/cycle/rejected/next?startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else // this shouldn't happen(!). go to main page anyway
+			res.redirect('/dsr/sprint9b/login/dashboard/rejected');
+		
+	});	
+      
+      //////////////////////////
+	/// sprint 9c
+
+	app.get('/dsr/sprint9c/login/dashboard', function(req, res) {
+		
+		res.render('dsr/sprint9c/login/dashboard',
+        {
+			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	app.get('/dsr/sprint9c/login/dashboard/rejected', function(req, res) {
+		
+		res.render('dsr/sprint9c/login/dashboard/rejected',
+        {
+			"rejectedItems" : rejectedItemsJson,
+			"pendingItems" : pendingItemsJson,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	// show the selected item
+	app.get('/dsr/sprint9c/login/dashboard/items/cycle/rejected/next', function(req, res) {
+	
+		if(rejectedItemsJson.length>0)
+		{
+			// get first rejected item
+			var firstItemId=rejectedItemsJson[0].id;
+			
+			// unpaid item count - held at the figure when the user first clicked "Add Information"
+			var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+			// running total of items corrected in a run
+			var unpaidItemRunning=parseInt(req.query.unpaidItemRunning)+1;
+			
+			// show it
+			res.redirect('/dsr/sprint9c/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);		
+		}
+		else
+		{
+			// no rejected items. go to dashboard page
+			res.redirect('/dsr/sprint9c/login/dashboard/');		
+		}
+	
+	});
+      
+      //////////////////////////
+	/// sprint 10
+
+	app.get('/dsr/sprint10/login/dashboard', function(req, res) {
+		
+		res.render('dsr/sprint10/login/dashboard',
+        {
+			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	app.get('/dsr/sprint10/login/dashboard/rejected', function(req, res) {
+		
+		res.render('dsr/sprint10/login/dashboard/rejected',
+        {
+			"rejectedItems" : rejectedItemsJson,
+			"pendingItems" : pendingItemsJson,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	// show the selected item
+	app.get('/dsr/sprint10/login/dashboard/items/cycle/rejected/next', function(req, res) {
+	
+		if(rejectedItemsJson.length>0)
+		{
+			// get first rejected item
+			var firstItemId=rejectedItemsJson[0].id;
+			
+			// unpaid item count - held at the figure when the user first clicked "Add Information"
+			var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+			// running total of items corrected in a run
+			var unpaidItemRunning=parseInt(req.query.unpaidItemRunning)+1;
+			
+			// show it
+			res.redirect('/dsr/sprint10/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);		
+		}
+		else
+		{
+			// no rejected items. go to dashboard page
+			res.redirect('/dsr/sprint10/login/dashboard/');		
+		}
+	
+	});
+	
+	// show the selected item
+	app.get('/dsr/sprint10/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var item;
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);		
+		
+		// the entry is in either rejectedItemsJson or pendingItemsJson
+		if(indexInRejected!=-1)
+			item=rejectedItemsJson[indexInRejected];
+		else if(indexInPending!=-1)
+			item=pendingItemsJson[indexInPending];
+			
+		res.render('dsr/sprint10/login/dashboard/items/cycle/template',
+        {
+			"selectedItemId" : item.id,
+			"selectedProductName" : item.productName,
+			"selectedPresentation" : item.presentation,
+			"selectedStrength" : item.strength,
+			"selectedQty" : item.qty,
+			"patientName" : item.patientName,
+			"patientDob" : item.patientDob,
+			"patientNhsNum" : item.patientNhsNum,
+			"after" : req.query.after,
+			"packSizeError" : req.query.packSizeError,
+			"supplierError" : req.query.supplierError,
+			"startingUnpaidItemCount" : req.query.startingUnpaidItemCount,
+			"unpaidItemRunning" : req.query.unpaidItemRunning
+        }
+      );
+	});
+	
+	// submit the selected item
+	// url query param = "after". set to either NEXT or MAIN
+	app.get('/dsr/sprint10/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var supplierError=false;
+		var packSizeError=false;
+		
+		if(req.query.supplierInput=="")
+			supplierError=true;
+		
+		if(req.query.packSizeInput=="")
+			packSizeError=true;
+
+		// unpaid item count - held at the figure when the user first clicked "Add Information"
+		var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+		// running total of items corrected in a run
+		var unpaidItemRunning=parseInt(req.query.unpaidItemRunning);		
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+		
+		if((supplierError==false || packSizeError==false)
+			&& indexInRejected>=0 && indexInPending==-1)
+		{
+			var moveThisRow=rejectedItemsJson[indexInRejected];
+			rejectedItemsJson.splice(indexInRejected, 1);
+			pendingItemsJson.push(moveThisRow);
+		}
+		
+		// either go to the next, or back to the main page
+		// or re-display the current page if there's an error
+		var whereAfter=req.query.after;
+		if(supplierError==true || packSizeError==true)
+			res.redirect('/dsr/sprint10/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else if(whereAfter=="MAIN")
+			res.redirect('/dsr/sprint10/login/dashboard/rejected');
+		else if(whereAfter=="NEXT")
+			res.redirect('/dsr/sprint10/login/dashboard/items/cycle/rejected/next?startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else // this shouldn't happen(!). go to main page anyway
+			res.redirect('/dsr/sprint10/login/dashboard/rejected');
+		
+	});	
+      
+      //////////////////////////
+	/// sprint 10b
+
+	app.get('/dsr/sprint10b/login/dashboard', function(req, res) {
+		
+		res.render('dsr/sprint10b/login/dashboard',
+        {
+			"totalUnpaidItemsCount" : pendingItemsJson.length + rejectedItemsJson.length,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	app.get('/dsr/sprint10b/login/dashboard/rejected', function(req, res) {
+		
+		res.render('dsr/sprint10b/login/dashboard/rejected',
+        {
+			"rejectedItems" : rejectedItemsJson,
+			"pendingItems" : pendingItemsJson,
+			"rejectedItemsCount" : rejectedItemsJson.length,
+			"pendingItemsCount" : pendingItemsJson.length
+        }
+      );
+	});
+
+	// show the selected item
+	app.get('/dsr/sprint10b/login/dashboard/items/cycle/rejected/next', function(req, res) {
+	
+		if(rejectedItemsJson.length>0)
+		{
+			// get first rejected item
+			var firstItemId=rejectedItemsJson[0].id;
+			
+			// unpaid item count - held at the figure when the user first clicked "Add Information"
+			var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+			// running total of items corrected in a run
+			var unpaidItemRunning=parseInt(req.query.unpaidItemRunning)+1;
+			
+			// show it
+			res.redirect('/dsr/sprint10b/login/dashboard/items/cycle/rejected/'+firstItemId+'?after=NEXT&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);		
+		}
+		else
+		{
+			// no rejected items. go to dashboard page
+			res.redirect('/dsr/sprint10b/login/dashboard/');		
+		}
+	
+	});
+	
+	// show the selected item
+	app.get('/dsr/sprint10b/login/dashboard/items/cycle/rejected/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var item;
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);		
+		
+		// the entry is in either rejectedItemsJson or pendingItemsJson
+		if(indexInRejected!=-1)
+			item=rejectedItemsJson[indexInRejected];
+		else if(indexInPending!=-1)
+			item=pendingItemsJson[indexInPending];
+			
+		res.render('dsr/sprint10b/login/dashboard/items/cycle/template',
+        {
+			"selectedItemId" : item.id,
+			"selectedProductName" : item.productName,
+			"selectedPresentation" : item.presentation,
+			"selectedStrength" : item.strength,
+			"selectedQty" : item.qty,
+			"patientName" : item.patientName,
+			"patientDob" : item.patientDob,
+			"patientNhsNum" : item.patientNhsNum,
+			"after" : req.query.after,
+			"packSizeError" : req.query.packSizeError,
+			"supplierError" : req.query.supplierError,
+			"startingUnpaidItemCount" : req.query.startingUnpaidItemCount,
+			"unpaidItemRunning" : req.query.unpaidItemRunning
+        }
+      );
+	});
+	
+	// submit the selected item
+	// url query param = "after". set to either NEXT or MAIN
+	app.get('/dsr/sprint10b/login/dashboard/items/cycle/submit/:itemId', function(req, res) {
+		
+		var selectedItemId = req.params.itemId;
+		var supplierError=false;
+		var packSizeError=false;
+		
+		if(req.query.supplierInput=="")
+			supplierError=true;
+		
+		if(req.query.packSizeInput=="")
+			packSizeError=true;
+
+		// unpaid item count - held at the figure when the user first clicked "Add Information"
+		var startingUnpaidItemCount=req.query.startingUnpaidItemCount;
+		// running total of items corrected in a run
+		var unpaidItemRunning=parseInt(req.query.unpaidItemRunning);		
+		
+		var indexInRejected=rejectedItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+
+		var indexInPending=pendingItemsJson.findIndex(function(elementInArray){
+			return elementInArray.id==selectedItemId;
+		}
+		);
+		
+		if((supplierError==false || packSizeError==false)
+			&& indexInRejected>=0 && indexInPending==-1)
+		{
+			var moveThisRow=rejectedItemsJson[indexInRejected];
+			rejectedItemsJson.splice(indexInRejected, 1);
+			pendingItemsJson.push(moveThisRow);
+		}
+		
+		// either go to the next, or back to the main page
+		// or re-display the current page if there's an error
+		var whereAfter=req.query.after;
+		if(supplierError==true || packSizeError==true)
+			res.redirect('/dsr/sprint10b/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else if(whereAfter=="MAIN")
+			res.redirect('/dsr/sprint10b/login/dashboard/rejected');
+		else if(whereAfter=="NEXT")
+			res.redirect('/dsr/sprint10b/login/dashboard/items/cycle/rejected/next?startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		else // this shouldn't happen(!). go to main page anyway
+			res.redirect('/dsr/sprint10b/login/dashboard/rejected');
+		
+	});	
+    
   }
 };
 
