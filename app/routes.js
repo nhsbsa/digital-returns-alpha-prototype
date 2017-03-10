@@ -438,12 +438,13 @@ module.exports = {
 
 	
 	var rejectedItemsJson=[
-		{"id" : "item1", "productName" : "Carmellose",     "presentation" : "Tablets", "strength" : "150mg", "qty" : "28", "patientName" : "Hadworth", "patientDob" : "10/11/1981", "patientNhsNum" : "6583257485"},
-		{"id" : "item2", "productName" : "Ranitidine",      "presentation" : "Suspension", "strength" : "200mg", "qty" : "12", "patientName" : "Harding", "patientDob" : "05/09/1976", "patientNhsNum" : "658732165"},
-		{"id" : "item3", "productName" : "Colecalciferol",  "presentation" : "Capsules", "strength" : "20,000u", "qty" : "56", "patientName" : "Smith", "patientDob" : "01/03/1955", "patientNhsNum" : "2589637621"},
-		{"id" : "item4", "productName" : "Doxazosin",       "presentation" : "Tablets", "strength" : "4mg M/R", "qty" : "14", "patientName" : "Sherdian", "patientDob" : "14/02/2009", "patientNhsNum" : "1258963241"},
-		{"id" : "item5", "productName" : "Co-amoxiclav",    "presentation" : "Oral suspension sugar free", "strength" : "125mg/31mg/5ml", "qty" : "100ml", "patientName" : "Morra", "patientDob" : "18/04/2004", "patientNhsNum" : "148365255"},
-		{"id" : "item6", "productName" : "Nifedipress",     "presentation" : "Tablets", "strength" : "10mg M/R", "qty" : "7", "patientName" : "Eddington", "patientDob" : "20/06/1966", "patientNhsNum" : "125681254"}
+		{"id" : "item1", "productName" : "Colecalciferol", "dispensedProductName" : "Colecalciferol 1,000unit capsules 30 capsule 30.0", "presentation" : "Capsules", "strength" : "1000unit", "qty" : "28", "patientName" : "Hadworth", "patientDob" : "10/11/1981", "patientNhsNum" : "6583257485"},
+		{"id" : "item2", "productName" : "Water for irrigation",
+         "dispensedProductName" : "Water for irrigation 1litre bottles (Baxter Healthcare Ltd) 1 bottle 1.0", "presentation" : "Bottle", "strength" : "N/A", "qty" : "1L bottle", "patientName" : "Harding", "patientDob" : "05/09/1976", "patientNhsNum" : "658732165"},
+		{"id" : "item3", "productName" : "Co-proxamol",  "dispensedProductName" : "Co-proxamol 32.5mg/325mg tablets 100 tablet 100.0",  "presentation" : "Tablets", "strength" : "32.5mg/325mg", "qty" : "56", "patientName" : "Smith", "patientDob" : "01/03/1955", "patientNhsNum" : "2589637621"},
+		{"id" : "item4", "productName" : "Doxazosin (Mylan Ltd)", "dispensedProductName" : "Doxazosin 4mg tablets (Mylan Ltd) 28 tablet 28.0",        "presentation" : "Tablets", "strength" : "4mg M/R", "qty" : "14", "patientName" : "Sherdian", "patientDob" : "14/02/2009", "patientNhsNum" : "1258963241"},
+		{"id" : "item5", "productName" : "Ranitidine (Actavis UK Ltd)", "dispensedProductName" : "Ranitidine 75mg/5ml oral solution sugar free (Actavis UK Ltd) 300 ml 300.0",     "presentation" : "Oral Solution", "strength" : "75mg/5ml", "qty" : "300ml", "patientName" : "Morra", "patientDob" : "18/04/2004", "patientNhsNum" : "148365255"},
+		{"id" : "item6", "productName" : "Melatonin", "dispensedProductName" : "Melatonin 2mg capsules 1 capsule 1.0",     "presentation" : "Capsules", "strength" : "2mg", "qty": "10", "patientName" : "Eddington", "patientDob" : "20/06/1966", "patientNhsNum" : "125681254"}
 	];
 
 	var pendingItemsJson=[
@@ -656,6 +657,7 @@ module.exports = {
 			"selectedStrength" : item.strength,
 			"selectedQty" : item.qty,
 			"patientName" : item.patientName,
+            "selecteddispensedProductName" : item.dispensedProductName,
 			"patientDob" : item.patientDob,
 			"patientNhsNum" : item.patientNhsNum,
 			"after" : req.query.after,
@@ -1558,6 +1560,7 @@ module.exports = {
 			"selectedStrength" : item.strength,
 			"selectedQty" : item.qty,
 			"patientName" : item.patientName,
+            "selecteddispensedProductName" : item.dispensedProductName,
 			"patientDob" : item.patientDob,
 			"patientNhsNum" : item.patientNhsNum,
 			"after" : req.query.after,

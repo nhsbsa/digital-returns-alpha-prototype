@@ -6,57 +6,85 @@
 
 <main id="content" role="main">
     
-     <div class="grid-row" style="margin-top: 20px;">
-             
-             <h1 style="line-height: 1.04167; padding:30px 0 0 0;" class="heading-large">September
+     <div class="grid-row" style="margin-top: 10px;">
+         
+         <div class="column-two-thirds">
+         
+             <h1 style="line-height: 1.04167; padding:30px 0 0 0;" class="heading-large">About your submission
     
-    <span class="contractor">About your submission</span>
-    
-    <!--
-    
-    <div class="grid-row">
-    
-    <div class="column-third">
-        
-         <h2 class="heading-medium" style="margin-top: 10px;"><label>Which period is this for?</label></h2>
-                
+    <span class="contractor">September</span></h1>
+         
     </div>
-    
-    <div class="column-two-thirds">
-        
-        <div style="margin-top:25px;">
-            
-            <select>
-            <option>January</option>
-            <option>February</option>
-            <option>March</option>
-            <option>April</option>
-            <option>May</option>
-            <option>June</option>
-            </select>
-            
-            </div>
-        
-        </div>
-        
+         
     </div>
-
--->
     
     <hr>
     
     <div class="grid-row">
+        
+            <div class="column-third">
+                
+                <p style="margin-top: 10px;">EPS prescriptions</p>
+                
+        </div>
+         
+         <div class="column-two-thirds">
+                 
+                 <p class="lede">Your EPS items are calculated automatically.</p>
+             
+         </div>
+        
+    </div>
+                 
+                 <hr>
+    
+    <div class="grid-row">
     
     <div class="column-third">
         
-         <h2 class="heading-medium" style="margin-top: 10px;">Paper Prescriptions</h2>
+         <p style="margin-top: 10px;">Paper prescriptions</p>
                 
     </div>
     
     <div class="column-two-thirds">
+        
+        <div class="form-item-wrapper">
+            
+<script type="text/javascript">
+    $(function () {
+        $("input[name='items-binary']").click(function () {
+            if ($("#items-binary-no").is(":checked")) {
+                $("#items-correction").hide();
+            } else {
+                $("#items-correction").show();
+            }
+        });
+    });
+</script>
+
+            <legend  style="padding-top:0px;" class="form-label-bold">Are you sending any paper prescriptions?</legend>
+<div class="inline-form-groups">
+            <div class="form-group">
+                <input type="radio" id="items-binary-yes" name="items-binary" />
+                <label class="form-control-radio" for="items-binary-yes">
+                Yes
+                </label>
+            </div>
+                
+
+            <div class="form-group">
+                <input type="radio" id="items-binary-no" name="items-binary" />
+                <label class="form-control-radio" for="items-binary-no">
+                No
+                </label>
+            </div>
     
-    <div class="form-item-wrapper">        
+    </div>
+<div id="items-correction" style="display: none; clear:both;">
+            <div class="form-item-wrapper">        
         <fieldset>
+            
+            
             
           <legend class="form-label-bold">How many paper prescriptions are you sending?</legend>
                 
@@ -67,6 +95,8 @@
           </div>
             
         </fieldset>
+        
+        <hr>
         
         <fieldset>
             
@@ -91,11 +121,80 @@
             <input type="text" id="last-label" class="form-control">
           </div>
         </fieldset>
-             
+                
              </div>
+          </div>
+</div>
+            </div>
+            
         </div>
+    
+    <hr>
+    
+    <div class="grid-row">
+    
+    <div class="column-third">
+        
+         <p style="margin-top: 10px;">FP57 forms</p>
         
     </div>
+             
+             <div class="column-two-thirds">
+                 
+                 <div class="form-item-wrapper" style="margin-top:0;">
+            
+<script type="text/javascript">
+    $(function () {
+        $("input[name='fp57-binary']").click(function () {
+            if ($("#fp57-binary-no").is(":checked")) {
+                $("#fp57-correction").hide();
+            } else {
+                $("#fp57-correction").show();
+            }
+        });
+    });
+</script>
+
+            <legend  style="padding-top:0px;" class="form-label-bold">Are you sending any FP57 forms?</legend>
+            <div class="inline-form-groups">
+            <div class="form-group">
+                <input type="radio" id="fp57-binary-yes" name="fp57-binary" />
+                <label class="form-control-radio" for="fp57-binary-yes">
+                Yes
+                </label>
+            </div>
+
+            <div class="form-group">
+                <input type="radio" id="fp57-binary-no" name="fp57-binary" />
+                <label class="form-control-radio" for="fp57-binary-no">
+                No
+                </label>
+            </div>
+                </div>
+                
+<div id="fp57-correction" style="display: none; clear:both;">
+    <div class="form-group">
+            <label class="form-label" for="first-label">
+              How many are you sending?
+            </label>
+            <input type="text" id="first-label" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="last-label">
+              What was the total amount refunded?
+            </label>
+            <input type="text" id="last-label" class="form-control">
+          </div>
+</div>
+            
+            
+        </div>
+                 
+        </div>
+        
+        
+    </div>
+            
     
     <hr>
         
@@ -103,18 +202,45 @@
     
     <div class="column-third">
         
-         <h2 class="heading-medium" style="margin-top: 10px;">Other activities</h2>
+         <p style="margin-top: 10px;">Did you carry out any</p>
         
     </div>
              
              <div class="column-two-thirds">
-    
-      <div class="form-item-wrapper">
           
-          <!--
-        <fieldset>
-          <legend class="form-label-bold">Did you carry out any Appliance use reviews</legend>
-          <div class="form-group">
+          <div class="form-item-wrapper" style="margin-top:0;">
+            
+<script type="text/javascript">
+    $(function () {
+        $("input[name='appliance-binary']").click(function () {
+            if ($("#appliance-binary-no").is(":checked")) {
+                $("#appliance-correction").hide();
+            } else {
+                $("#appliance-correction").show();
+            }
+        });
+    });
+</script>
+
+            <legend  style="padding-top:0px;" class="form-label-bold">Appliance use reviews</legend>
+            <div class="inline-form-groups">
+            <div class="form-group">
+                <input type="radio" id="appliance-binary-yes" name="appliance-binary" />
+                <label class="form-control-radio" for="appliance-binary-yes">
+                Yes
+                </label>
+            </div>
+
+            <div class="form-group">
+                <input type="radio" id="appliance-binary-no" name="appliance-binary" />
+                <label class="form-control-radio" for="appliance-binary-no">
+                No
+                </label>
+            </div>
+                </div>
+                
+<div id="appliance-correction" style="display: none; clear:both;">
+    <div class="form-group">
             <label class="form-label" for="first-label">
               At same premises or users in same location
             </label>
@@ -126,68 +252,110 @@
             </label>
             <input type="text" id="last-label" class="form-control">
           </div>
+</div>
             
-          <div class="inline-form-groups">
-            <div class="form-group">
-              <input type="radio" id="binary-yes" name="binary">
-              <label class="form-control-radio" for="binary-yes">
-                Yes
-              </label>
-            </div>
-            <div class="form-group">
-              <input type="radio" id="binary-no" name="binary">
-              <label class="form-control-radio" for="binary-no">
-                No
-              </label>
-            </div>
-          </div>
-        </fieldset>
-
--->
+            
+        </div>
+                 
+                 <hr>
+                 
+                 <div class="form-item-wrapper">
           
           <div class="form-item-wrapper">
             
-            <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
 <script type="text/javascript">
     $(function () {
-        $("input[name='items-binary']").click(function () {
-            if ($("#items-binary-no").is(":checked")) {
-                $("#items-correction").hide();
+        $("input[name='medicine-binary']").click(function () {
+            if ($("#medicine-binary-no").is(":checked")) {
+                $("#medicine-correction").hide();
             } else {
-                $("#items-correction").show();
+                $("#medicine-correction").show();
             }
         });
     });
 </script>
 
-            <legend  style="padding-top:0px;" class="form-label-bold">Did you carry out any application use reviews?</legend>
+            <legend  style="padding-top:0px;" class="form-label-bold">Medicine use reviews</legend>
             <div class="inline-form-groups">
             <div class="form-group">
-                <input type="radio" id="items-binary-yes" name="items-binary" />
-                <label class="form-control-radio" for="items-binary-yes">
+                <input type="radio" id="medicine-binary-yes" name="medicine-binary" />
+                <label class="form-control-radio" for="medicine-binary-yes">
                 Yes
                 </label>
             </div>
 
             <div class="form-group">
-                <input type="radio" id="items-binary-no" name="items-binary" />
-                <label class="form-control-radio" for="items-binary-no">
+                <input type="radio" id="medicine-binary-no" name="medicine-binary" />
+                <label class="form-control-radio" for="medicine-binary-no">
                 No
                 </label>
             </div>
-<div id="items-correction" style="display: none; clear:both;">
-    <p>How many did you carry out?</p>
-    <input type="text" id="txtPassportNumber"  class="form-control"/>
+                </div>
+<div id="medicine-correction" style="display: none; clear:both;">
+          <div class="form-group">
+            <label class="form-label" for="last-label">
+              How many did you carry out?
+            </label>
+            <input type="text" id="last-label" class="form-control">
+          </div>
 </div>
+            
+            
+        </div>
+             
+             </div>
+                 
+                 <hr>
+                 
+                 <div class="form-item-wrapper">
+          
+          <div class="form-item-wrapper">
+            
+<script type="text/javascript">
+    $(function () {
+        $("input[name='services-binary']").click(function () {
+            if ($("#services-binary-no").is(":checked")) {
+                $("#services-correction").hide();
+            } else {
+                $("#services-correction").show();
+            }
+        });
+    });
+</script>
+
+            <legend  style="padding-top:0px;" class="form-label-bold">New Medicine Services</legend>
+            <div class="inline-form-groups">
+            <div class="form-group">
+                <input type="radio" id="services-binary-yes" name="services-binary" />
+                <label class="form-control-radio" for="services-binary-yes">
+                Yes
+                </label>
             </div>
+
+            <div class="form-group">
+                <input type="radio" id="services-binary-no" name="services-binary" />
+                <label class="form-control-radio" for="services-binary-no">
+                No
+                </label>
+            </div>
+                </div>
+<div id="services-correction" style="display: none; clear:both;">
+          <div class="form-group">
+            <label class="form-label" for="last-label">
+              How many did you carry out?
+            </label>
+            <input type="text" id="last-label" class="form-control">
+          </div>
+</div>
+            
+              
+              </div>
             
         </div>
              
              </div>
                  
              </div>
-             
-        </div>
     
     <hr>
     
