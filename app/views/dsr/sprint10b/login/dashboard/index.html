@@ -38,7 +38,7 @@
         
         <a class="tabopen" href="">Summary</a>
         
-        <a class="tab" href="rejected">Unpaid items (6)</a>
+        <a class="tab" href="rejected">Unpaid items ({{totalUnpaidItemsCount}})</a>
         
         <a class="tab" href="disallowed">Disallowed items</a>
         
@@ -143,7 +143,7 @@
                 
             <a style="margin-top: 5px; float:right;" href="items/cycle/rejected/next?startingUnpaidItemCount={{rejectedItemsCount}}&unpaidItemRunning=0" >Add information</a>
             
-            <div style="text-align: center; background-color:#f7e6e8; color:#B10E1E; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>{{rejectedItemsCount}}</strong></div><p style="margin-bottom:5px; padding-top:12px;">EPS items</p>
+            <div style="text-align: center; background-color:#f7e6e8; color:#B10E1E; font-size: 25px; width: 70px; padding: 10px 5px 5px 5px; float:left; margin-right:10px;"><strong>{{totalUnpaidItemsCount}}</strong></div><p style="margin-bottom:5px; padding-top:12px;">EPS items</p>
                  
             </div>
             
