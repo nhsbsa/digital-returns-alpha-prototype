@@ -527,6 +527,7 @@ module.exports = {
 			"after" : req.query.after,
 			"packSizeError" : req.query.packSizeError,
 			"supplierError" : req.query.supplierError
+            
         }
       );
 	});
@@ -576,7 +577,7 @@ module.exports = {
 			res.redirect('/dsr/sprint4_a/login/dashboard/rejected');
 		
 	});
-	
+      
 	//////////////////////////
 	/// sprint 5
 
@@ -662,6 +663,7 @@ module.exports = {
 			"patientNhsNum" : item.patientNhsNum,
 			"after" : req.query.after,
 			"packSizeError" : req.query.packSizeError,
+            "priceError" : req.query.priceError,
 			"supplierError" : req.query.supplierError,
 			"startingUnpaidItemCount" : req.query.startingUnpaidItemCount,
 			"unpaidItemRunning" : req.query.unpaidItemRunning
@@ -675,10 +677,15 @@ module.exports = {
 		
 		var selectedItemId = req.params.itemId;
 		var supplierError=false;
+        var priceError=false;
 		var packSizeError=false;
+      
 		
 		if(req.query.supplierInput=="")
 			supplierError=true;
+        
+        if(req.query.supplierInput=="")
+			priceError=true;
 		
 		if(req.query.packSizeInput=="")
 			packSizeError=true;
@@ -698,7 +705,7 @@ module.exports = {
 		}
 		);
 		
-		if((supplierError==false || packSizeError==false)
+		if((supplierError==false|| priceError==false || packSizeError==false)
 			&& indexInRejected>=0 && indexInPending==-1)
 		{
 			var moveThisRow=rejectedItemsJson[indexInRejected];
@@ -709,8 +716,8 @@ module.exports = {
 		// either go to the next, or back to the main page
 		// or re-display the current page if there's an error
 		var whereAfter=req.query.after;
-		if(supplierError==true || packSizeError==true)
-			res.redirect('/dsr/sprint5/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		if(supplierError==true || priceError==true || packSizeError==true )
+			res.redirect('/dsr/sprint5/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&priceError='+priceError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
 		else if(whereAfter=="MAIN")
 			res.redirect('/dsr/sprint5/login/dashboard/rejected');
 		else if(whereAfter=="NEXT")
@@ -1565,6 +1572,7 @@ module.exports = {
 			"patientNhsNum" : item.patientNhsNum,
 			"after" : req.query.after,
 			"packSizeError" : req.query.packSizeError,
+            "priceError" : req.query.priceError,
 			"supplierError" : req.query.supplierError,
 			"startingUnpaidItemCount" : req.query.startingUnpaidItemCount,
 			"unpaidItemRunning" : req.query.unpaidItemRunning
@@ -1578,10 +1586,15 @@ module.exports = {
 		
 		var selectedItemId = req.params.itemId;
 		var supplierError=false;
+        var priceError=false;
 		var packSizeError=false;
+      
 		
 		if(req.query.supplierInput=="")
 			supplierError=true;
+        
+        if(req.query.supplierInput=="")
+			priceError=true;
 		
 		if(req.query.packSizeInput=="")
 			packSizeError=true;
@@ -1601,7 +1614,7 @@ module.exports = {
 		}
 		);
 		
-		if((supplierError==false || packSizeError==false)
+		if((supplierError==false|| priceError==false || packSizeError==false)
 			&& indexInRejected>=0 && indexInPending==-1)
 		{
 			var moveThisRow=rejectedItemsJson[indexInRejected];
@@ -1612,8 +1625,8 @@ module.exports = {
 		// either go to the next, or back to the main page
 		// or re-display the current page if there's an error
 		var whereAfter=req.query.after;
-		if(supplierError==true || packSizeError==true)
-			res.redirect('/dsr/sprint10b/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
+		if(supplierError==true || priceError==true || packSizeError==true )
+			res.redirect('/dsr/sprint10b/login/dashboard/items/cycle/rejected/'+selectedItemId+'?after='+whereAfter+'&supplierError='+supplierError+'&priceError='+priceError+'&packSizeError='+packSizeError+'&startingUnpaidItemCount='+startingUnpaidItemCount+'&unpaidItemRunning='+unpaidItemRunning);
 		else if(whereAfter=="MAIN")
 			res.redirect('/dsr/sprint10b/login/dashboard/rejected');
 		else if(whereAfter=="NEXT")
