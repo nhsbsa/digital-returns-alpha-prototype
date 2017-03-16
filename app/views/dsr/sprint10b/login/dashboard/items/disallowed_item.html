@@ -10,7 +10,7 @@
          
          <div class="disallowed-warning">
             
-            <h2 class="heading-medium">Ultron 500 is not an approved appliance so can't be paid.</h2>
+            <h2 class="heading-medium">Clini gauze swab is not an approved appliance so can't be paid.</h2>
              
              You can find a list of allowed appliances in Part IX of the <a href="http://www.nhsbsa.nhs.uk/PrescriptionServices/3399.aspx">Drug Tariff</a>.
             
@@ -18,98 +18,81 @@
          
          <div class="column-third"> 
              
-            <h1 class="heading-large">Prescribed</h1>
+            <h2 class="heading-medium">Prescribed</h2>
              
-             <h3 class="heading-medium">
+             <span style="margin-top: 10spx; font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Prescribed item</span>
              
-             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Patient surname</span>
-                 
-                 Smith </h3>
-             
-             <h3>
-             
-             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Patient address</span>
-                 
-                 </h3>
-                  
-                <p>123 Street name<br>
-                City name<br>
-                Town name<br>
-                NE11 7YG</p>
-             
-             <h3 class="heading-medium">
-             
-             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Date of birth</span>
-             
-             18/9/1985 </h3>
-             
-             <h3 class="heading-medium">
-             
-             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">NHS Patient Number</span>
-             
-             343432342 </h3>  
-             
-             <span style="margin-top: 25px; font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Item information</span>
+             <div style="border:5px solid #b10e1e; padding:15px; margin-top:25px; margin-bottom: 38px;">
          
              <ul style="margin: 10px 0 0 20px; list-style-type: disc;">
-                <li>Ultron 500</li>
-                <li>YSH Pharma LTD</li>
-                <li>1</li>
+                <li>Clini gauze swab</li>
+                 <li>(CliniSupplies Ltd)</li>
+                <li>10cm x 10cm</li>
+                <li>12ply</li>
             </ul>
+                 
+             </div>
+             
+             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; border-bottom: 1px solid #e5f0f9; padding-bottom: 10px; margin-bottom:10px; margin-top:10px;">Patient details</span>
+             
+             <h3 class="heading-small">Surname</h3>
+             
+             <p>Smith </p>
+             
+             <h3 class="heading-small">Postcode</h3>
+             
+             <p>NE12 3AC </p>
+             
+             <h3 class="heading-small">Date of birth</h3>
+             
+             <p>11/09/1982 </p>
+             
+             <h3 class="heading-small">NHS Number</h3>
+             
+             <p>3223233122 </p>
              
              </div>
          
         <div class="column-two-thirds">
       
-             <h1 class="heading-large">Dispensed</h1>
+            <h1 class="heading-medium">Dispensed <span style="font-size: 18px; color: grey;">on 19/02/2016</span></h1>
+						
+            {% if packSizeError=='true' || supplierError=='true' %}
+            <div class="field-errors">
+            <h2 class="heading-medium">
+			Complete the missing information
+			</h2>
+            <p>All fields must be complete before you can submit this item</p>
+            </div>
+			{% endif %}
             
-             <form action="/" method="post" class="form">
+            <span style="font-size: 19px; font-weight:400; text-transform:none; color:#6f777b; padding-top:15px; margin-top: 20px;">You selected this item in EPS</span>
+            
+            <div style="border: 3px solid #E5F0F9; padding:15px; margin-top:25px; margin-bottom: 25px;">
+                      
+                      <p><Strong>Product name:</Strong> Clini gauze swab 12ply non-sterile 10cm x 10cm</p>
+                      
+                      <p><Strong>Quantity:</Strong> 12ply</p>
+                      
+                      <p><Strong>Additional endorsements:</Strong> BB</p>
+                      
+                      </div> 
+                  
+            <!--<p><legend  class="form-label"><strong>Pack price</strong></legend></p>
 
-      <div class="form-item-wrapper">
-              
-              <fieldset>
-                  
-            <p><legend  class="form-label">Presentation</legend></p>
+-->
+        
+            <div style="margin-top:20px;">
             
-          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
-              N/A
-          </div>
-                  
-           <p><legend  class="form-label" >Supplier/manufacturer</legend></p>
             
-          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
-              YSH Pharma LTD
-          </div>
-                  
-           <p><legend  class="form-label">Quantity</legend></p>
+                   
+             </div>
             
-          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
-              1
-          </div>
-                  
-                  <p><legend  class="form-label" >Pack size</legend></p>
-          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey;">
-              N/A
-          </div>
-                  
-            <p><legend  class="form-label">Pack price</legend></p>
-            
-          <div style="background-color: #EFEFEF; border: 1px solid grey; width: 46%; padding: 10px; color: grey; margin-bottom:25px;">
-              £299.99
-          </div>
-                  
-        </fieldset>
-      </div>
+            </div>
          
-  </form>
-                
-            
-         </div>
-    
-    <hr>
-         
+        
+        
     </div>
-    
 </main>
 
 {% endblock %}
