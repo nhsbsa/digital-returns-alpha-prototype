@@ -160,6 +160,10 @@
     margin-top:10px;
 }
 
+.submission-filter-left { 
+    margin-top:10px;
+}
+
 .submissions {
     padding:0 15px;
 }
@@ -172,7 +176,7 @@
 
 .received-submission {
     border-top:1px solid #bfc1c3;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 span.received-submission {
@@ -444,7 +448,7 @@ span.remove {
 }
 
 .item-table th, td {
-    padding: 0px;
+    padding: 10px 10px 10px 0;
     border-bottom:1px solid #bfc1c3;
     font-size: 18px;
 }
@@ -488,8 +492,8 @@ span.remove {
     top:17px;
 }
 
-.checkmark_container span {
-    margin-top:10px;
+.checkmark_container {
+    margin-top:100px;
 }
 
 .collapse{
@@ -607,4 +611,20 @@ a.tabopen {
     display:block; 
     color:#6f777b; 
     padding-top:0px; 
+}
+
+// button styles
+.button {
+  height: 4.5rem;
+  line-height: 5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom-color: #003323;
+  &:hover {
+    background-color: #005239;
+  }
+    
 }
