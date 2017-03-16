@@ -8,158 +8,200 @@
     
     <div style="margin-top: 0px;" class="grid-row">
         
-        <div class="column-two-thirds">
-        
-        <h1 style="line-height: 1.04167; padding:30px 0 0 0;" class="heading-large">LLOYDS PHARMACY LTD
+        <div class="column-third">
+            
+            <h1 style="line-height: 1.04167; padding:30px 0 0 0;" class="heading-medium">Lloyds Pharmacy LTD
     
     <span class="contractor">FJJ79/EPHM</span>
-    
-    </h1>
+                
+                 </h1>
             
+            <p><strong>Form</strong><br>
+            3211</p>
+            
+            <p><strong>Period</strong><br>
+            01/01/2017 31/01/2017</p>
+            
+        </div>
+                
+                <div class="column-two-thirds" style="margin-top:20px;">
+        
+        <table style="margin-bottom:40px;">
+	<tbody>
+        
+        <tr>
+			
+            <td style="width:25%"><strong>Charge Status</strong></td>
+            <td style="width:15%">E</td>
+            <td style="width:20%"><strong>Ex Cat</strong></td>
+            <td style="width:10%">C</td>
+            <td style="width:20%"><strong>Reason code</strong></td>
+            <td style="width:10%">RB3C</td>
+            
+		</tr>
+        
+		<tr>
+            <td><strong>Paper Type</strong></td>
+            <td>FP10SS</td>
+			<td><strong>Prescriber Type</strong></td>
+            <td>-</td>
+            <td><strong></strong></td>
+            <td><strong></strong></td>
+		</tr>
+		<tr>
+			<td><strong>Prescriber</strong></td>
+            <td>933082</td>
+			<td>MCKAY K</td>
+            <td></td>
+            <td></td>
+            <td></td>
+		</tr>
+        
+        
+		<tr>
+			<td><strong>Parent/Practice</strong></td>
+			<td>-</td>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td></td> 
+		</tr>
+            
+	</tbody>
+</table>
+        
+        <table>
+	<tbody>
+		<tr>
+			<td style="width:25%"><strong>Item product</strong></td>
+            <td style="width:25%"><strong>Quantity</strong></td>
+            <td style="width:25%"><strong>Add info</strong></td>
+            <td style="width:25%"><strong>Price</strong></td>
+		</tr>
+		<tr>
+			<td>49799</td>
+			<td>56</td>
+            <td>-</td>
+            <td>-</td>
+		</tr>
+        
+        </tbody>
+</table>
+        <table style="margin-bottom:40px;">
+	<tbody>
+        <tr>
+            <td style="width:100%"><strong>Colecalciferol 1,000unit capsules 30 capsule 30.0</strong></td>
+		</tr>    
+        
+	</tbody>
+</table>
+                    
+                    <div style="background-color:#E5F0F9; padding:15px 15px 5px 15px; margin-top:25px; margin-bottom: 25px;">
+                        
+                        <h3 class="heading-medium">Added information</h3>
+                      
+<table style="margin-bottom:40px;">
+	   <tbody>
+		<tr>
+			<td style="width:25%"><strong>Supplier</strong></td>
+            <td style="width:75%">BOB</td>
+            
+		</tr>
+        <tr>
+            <td style="width:25%"><strong>Pack Size</strong></td>
+            <td style="width:75%">32</td>   
+        </tr>
+        <tr>
+            <td style="width:25%"><strong>Pack Price</strong></td>
+            <td style="width:75%">£12.99</td>
+        </tr> 
+	</tbody>
+</table>
+                      
+                      </div> 
+              
+              <div class="form-item-wrapper" style="margin-top:0;">
+            
+<script type="text/javascript">
+    $(function () {
+        $("input[name='fp57-binary']").click(function () {
+            console.log("Here1");
+            if ($("#fp57-binary-yes").is(":checked")) {
+                console.log("Here2");
+                $("#fp57-correction").hide();
+                console.log("Here3");
+                $("#fp57-okay").show();
+                console.log("Here4");
+            } else {
+                $("#fp57-correction").show();
+                 $("#fp57-okay").hide();
+                console.log("Here5");
+            }
+        });
+    });
+</script>
+
+            <legend  style="padding-top:0px;" class="form-label-bold">Is this ok?</legend>
+            <div class="inline-form-groups">
+            <div class="form-group">
+                <input type="radio" id="fp57-binary-yes" name="fp57-binary" />
+                <label class="form-control-radio" for="fp57-binary-yes">
+                Yes
+                </label>
             </div>
-        
-        <div class="column-third">
-        
-    
-        </div>
-        
-    </div>
-    
-        <div style="margin-top: 0px;" class="grid-row">
-        
-        <div class="column-quarter">
-             
-             <h3 class="heading-medium">
-             
-             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Form</span>
-                 
-                 3164
-                 
-                 </h3>
-            
+
+            <div class="form-group">
+                <input type="radio" id="fp57-binary-no" name="fp57-binary" />
+                <label class="form-control-radio" for="fp57-binary-no">
+                No
+                </label>
             </div>
-            
-            <div class="column-half">
-            
-            <h3 class="heading-medium">
-             
-             <span style="font-size: 19px; font-weight:400; text-transform:none; display:block; color:#6f777b; padding-top:0px; ">Period</span>
-                 
-                 01/01/2017 - 31/01/2017
-                 
-                 </h3>
-            
-        </div>
-            
+                </div>
+                  
+                  <div id="fp57-correction" style="display: none; clear:both;">
+                      
+                    <p>Why?</p>
+                      
+    <div class="form-group">
+                <input type="radio" id="yes" name="fp57-binary" />
+                <label class="form-control-radio" for="yes">
+                Return back
+                </label>
+            </div>
+
+            <div class="form-group">
+                <input type="radio" id="no" name="fp57-binary" />
+                <label class="form-control-radio" for="no">
+                Disallowed
+                </label>
+        
+        
+        
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="last-label">
+              Reason code
+            </label>
+            <input type="text" id="last-label" class="form-control">
+          </div>
+                      
+                      <a href="submission_form_step2" class="button">Submit</a>  
+                      
+</div>
+                  
+                  <div id="fp57-okay" style="display: none; clear:both;">
+                      
+                             <p>Please key into CIP and then submit</p>
+                          
+                        <a href="submission_form_step2" class="button">Submit</a>  
+                          
+                      </div>
+          
     </div>
-    
-    <hr>
-    
-    <div style="margin-top: 0px;" class="grid-row">
-    
-    <div class="column-quarter">
-        
-        <p><legend  class="form-label" >Charge Status</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-        
-        <p><legend  class="form-label" >Paper Type</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-        
-        </div>
-        
-        <div class="column-quarter">
-        
-    <p><legend  class="form-label" >Ex Cat</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-        </div>
-            
-            <p><legend  class="form-label" >Presc Type</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-            
-        </div>
-        
-        <div class="column-quarter">
-        
-    <p><legend  class="form-label" >Reason Code</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-            
-            <p><legend  class="form-label" >Parent</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-            
-        </div>
-        
-        <div class="column-quarter">
-            
-            <p><legend  class="form-label" >Prescriber</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-            
-            <p><legend  class="form-label" >Practice</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-            
-        </div>
-    
-        </div>
-    
-    <hr>
-    
-    <div style="margin-top: 0px;" class="grid-row">
-    
-    <div class="column-quarter">
-        
-        <p><legend  class="form-label" >Item product</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-        
-        </div>
-        
-        <div class="column-quarter">
-        
-    <p><legend  class="form-label" >Quantity</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-        </div>
-            
-        </div>
-        
-        <div class="column-quarter">
-        
-    <p><legend  class="form-label" >Add info</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-            
-        </div>
-        
-        <div class="column-quarter">
-        
-        <p><legend  class="form-label" >Price</legend></p>
-          <div class="form-group">
-            <input type="text" id="first-label" class="form-control">
-          </div>
-            
-        </div>
-        
-        </div>
-    
-    <hr>
-    
-    <p><a href="#" class="button button-get-started" onclick="document.getElementById('form').submit(); return false">Submit</a><a style="margin-left:10px" href="" class="button button-secondary">Skip</a></p>
+              
+              </div>
+          
+    </div>
         
 </main>
 
