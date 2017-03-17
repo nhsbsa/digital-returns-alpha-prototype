@@ -20,7 +20,7 @@
     
     <div class="column-two-thirds">
     
-    <h1 style="line-height: 1.04167; padding:30px 0 0 0;" class="heading-large">Prescription submissions
+    <h1 style="line-height: 1.04167; padding:30px 0 0 0;" class="heading-large">Manage your submissions
     
     <span class="contractor">Teds pharmacy  <a href="logout">Logout</a></span>
     
@@ -116,11 +116,11 @@
         
         <div class="column-third">
             
-            <h2 style="font-size:36px; margin:10px 0 10px 0">{{rejectedItemsCount}} items</h2>
+            <h2 class="heading-medium">Missing information</h2>
             
-            <p>With missing information</p>
+            <h2 class="heading-medium" style="margin-top:0px;">{{rejectedItemsCount}} items</h2>
             
-            <p style="color:#6F777B; margin:0px 0 30px 0; padding-top:0">We can't pay these items until you provide more information about them.</p>
+            <p style="color:#6F777B; margin:0px 0 30px 0; padding-top:0">We can't pay these items until you provide more information.</p>
 
     
         </div>
@@ -164,12 +164,9 @@
         
         <div class="column-third">
             
-            <h2 style="font-size:36px; margin:10px 0 10px 0">{{pendingItemsCount}} items</h2>
+            <h2 class="heading-medium">Information added</h2>
             
-            <p>With information provided</p>
-            
-            <p style="color:#6F777B; margin:0px 0 30px 0; padding-top:0">These items will be added to your next payment once we approve any information added.</p>
-
+            <h2 class="heading-medium" style="margin-top:0px;">{{pendingItemsCount}} items</h2>
     
         </div>
                 
@@ -210,14 +207,16 @@
         </div>
             
     </div>
+    
+    <hr>
 
-<!-- More confusing for user having accepted
-
+<div class="grid-row">
+    
             <div class="column-third">
-            
-            <p><strong>Accepted</strong></p>
                 
-            <p>These items will now be paid</p>
+                <h2 class="heading-medium">Processed</h2>
+            
+                <h2 class="heading-medium" style="margin-top:0px;">1 items</h2>
     
         </div>
                 
@@ -225,19 +224,21 @@
             
             <table style="font-size:18px;">
         
-      <tbody style="line-height:55px; ">
+      <tbody style="line-height:55px;">
       <tr>
-      <td>Carmellose </td>
+      <td><strong>Carmellose</strong></td>
       <td>Eye drops</td>
-      <td class="numeric last"><a href="items/accepted_item">Find out when</a></td>
+      <td class="numeric last"><span class="received-when"> <p>Paid with June submission</p> </span></td>
       </tr>
+          
     
   </tbody>
 </table>
             
         </div>
+    
+    </div>
 
--->
 
 </main>
 
